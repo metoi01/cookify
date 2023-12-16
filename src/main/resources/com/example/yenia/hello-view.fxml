@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.5, 0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+  <items>
+    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="900.0" minWidth="200.0" prefHeight="900.0" prefWidth="200.0" SplitPane.resizableWithParent="false">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <children>
+            <Button layoutX="50.0" layoutY="30.0" mnemonicParsing="false" pickOnBounds="false" prefWidth="100.0" text="Username" />
+            <Button layoutX="30.0" layoutY="100.0" mnemonicParsing="false" pickOnBounds="false" prefWidth="100.0" text="My Basket" />
+            <Button layoutX="30.0" layoutY="180.0" mnemonicParsing="false" pickOnBounds="false" prefWidth="100.0" text="Chiefs" />
+            <Button layoutX="30.0" layoutY="260.0" mnemonicParsing="false" prefWidth="100.0" text="Recipes" />
+            <Button layoutX="30.0" layoutY="340.0" mnemonicParsing="false" prefWidth="100.0" text="My Fridge" />
+            <Button layoutX="30.0" layoutY="420.0" mnemonicParsing="false" prefWidth="100.0" text="Settings" />
+            <Button layoutX="30.0" layoutY="500.0" mnemonicParsing="false" prefWidth="100.0" text="Log Out" />
+            <ImageView fitHeight="90.0" fitWidth="177.0" layoutX="5.0" layoutY="814.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+               <image>
+                  <Image url="@../../../../../../img/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="34.0" layoutX="13.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../img/avatar.jpeg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane disable="true" layoutX="200.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" visible="false" />
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1000.0" SplitPane.resizableWithParent="false">
+         <children>
+            <AnchorPane minHeight="0.0" minWidth="0.0" mouseTransparent="true" pickOnBounds="false" prefHeight="906.0" prefWidth="995.0">
+               <children>
+                  <Label layoutX="171.0" layoutY="48.0" prefHeight="55.0" prefWidth="217.0" text="Name">
+                     <font>
+                        <Font size="44.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="196.0" layoutY="110.0" text="x">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="229.0" layoutY="109.0" text="followers">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="68.0" layoutY="110.0" mnemonicParsing="false" text="Edit" />
+                  <SplitPane dividerPositions="0.7942989214175655" layoutX="-4.0" layoutY="250.0" orientation="VERTICAL" prefHeight="651.0" prefWidth="996.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="994.0">
+                           <children>
+                              <Label layoutX="361.0" layoutY="14.0" text="Personal Info">
+                                 <font>
+                                    <Font size="39.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="46.0" layoutY="90.0" text="edit here" />
+                              <Button layoutX="605.0" layoutY="20.0" mnemonicParsing="false" text="Edit" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="75.0" prefWidth="994.0">
+                           <children>
+                              <Button layoutX="443.0" layoutY="52.0" mnemonicParsing="false" text="Recipes">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+                  <Label layoutX="458.0" layoutY="67.0" text="overallgrade" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+  </items>
+</SplitPane>
