@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
@@ -9,16 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yenia.HelloController">
    <children>
-      <Button layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Username" />
+      <Button fx:id="usernameButton" layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
       <Button layoutX="50.0" layoutY="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
-      <Button layoutX="50.0" layoutY="180.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Chiefs" />
-      <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
-      <Button layoutX="50.0" layoutY="340.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
+      <Button fx:id="chiefsButton" layoutX="50.0" layoutY="180.0" mnemonicParsing="false" onAction="#chiefsButtonClick" prefHeight="30.0" prefWidth="100.0" text="Chiefs" />
+      <Button fx:id="recipesButton" layoutX="50.0" layoutY="260.0" mnemonicParsing="false" onAction="#recipesButtonClick" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
+      <Button fx:id="myfridgeButton" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
       <Button layoutX="50.0" layoutY="420.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Settings" />
       <Button layoutX="50.0" layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Log out" />
-      <SplitPane disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+      <SplitPane fx:id="usernamePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
          <items>
             <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
@@ -59,7 +60,7 @@
             </SplitPane>
          </items>
       </SplitPane>
-      <SplitPane disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+      <SplitPane fx:id="recipesPane" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
          <items>
             <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                <items>
@@ -70,10 +71,22 @@
                               <Font size="30.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="100.0" layoutY="120.0" mnemonicParsing="false" prefWidth="100.0" text="All" />
-                        <Button layoutX="325.0" layoutY="120.0" mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
-                        <Button layoutX="550.0" layoutY="120.0" mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
-                        <Button layoutX="800.0" layoutY="120.0" mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
+                           <buttons>
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                           </buttons>
+                        </ButtonBar>
+                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
+                           <buttons>
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                           </buttons>
+                        </ButtonBar>
                         <Label layoutX="776.0" layoutY="14.0" prefHeight="18.0" prefWidth="191.0" text="Do you have something new?" />
                         <Button layoutX="821.0" layoutY="35.0" mnemonicParsing="false" text="Add new recipe" />
                      </children>
@@ -109,7 +122,7 @@
             </SplitPane>
          </items>
       </SplitPane>
-      <SplitPane disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+      <SplitPane fx:id="chiefsPane" disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
          <items>
             <SplitPane dividerPositions="0.14420935412026725, 0.3413140311804009, 0.5239420935412027, 0.7232739420935412" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                <items>
@@ -146,7 +159,7 @@
             </SplitPane>
          </items>
       </SplitPane>
-      <SplitPane layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
+      <SplitPane fx:id="myfridgePane" disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
          <items>
             <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
               <items>
