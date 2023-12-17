@@ -181,7 +181,7 @@
             </SplitPane>
          </items>
       </SplitPane>
-      <SplitPane fx:id="recipesPane1" layoutX="220.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0">
+      <SplitPane fx:id="recipesPane1" disable="true" layoutX="220.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
          <items>
             <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                <items>
@@ -219,6 +219,40 @@
                         </TextField>
                      </children>
                   </AnchorPane>
+               </items>
+            </SplitPane>
+         </items>
+      </SplitPane>
+      <SplitPane fx:id="mybasketPane1" disable="true" layoutX="220.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+         <items>
+            <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <children>
+                        <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" text="Search">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </TextField>
+                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
+                           <buttons>
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Trends" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                           </buttons>
+                        </ButtonBar>
+                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
+                           <buttons>
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                           </buttons>
+                        </ButtonBar>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
                </items>
             </SplitPane>
          </items>
