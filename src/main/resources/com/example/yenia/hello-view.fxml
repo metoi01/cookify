@@ -12,309 +12,354 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yenia.HelloController">
    <children>
-      <Button fx:id="usernameButton" layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
-      <Button fx:id="mybasketButton" layoutX="50.0" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
-      <Button fx:id="chiefsButton" layoutX="50.0" layoutY="180.0" mnemonicParsing="false" onAction="#chiefsButtonClick" prefHeight="30.0" prefWidth="100.0" text="Chiefs" />
-      <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
-      <Button fx:id="myfridgeButton" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
-      <Button layoutX="50.0" layoutY="420.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Settings" />
-      <Button layoutX="50.0" layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Log out" />
-      <SplitPane fx:id="usernamePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Label layoutX="172.0" layoutY="40.0" text="Name Fill">
-                           <font>
-                              <Font size="29.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="157.0" layoutY="95.0" text="x" />
-                        <Label layoutX="191.0" layoutY="95.0" text="followers" />
-                        <Label layoutX="506.0" layoutY="49.0" text="Rating..." />
-                        <Button layoutX="52.0" layoutY="129.0" mnemonicParsing="false" text="editphoto" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Label layoutX="361.0" layoutY="30.0" text="Personal Info">
-                           <font>
-                              <Font size="42.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="621.0" layoutY="44.0" mnemonicParsing="false" text="Edit" />
-                        <Label layoutX="37.0" layoutY="120.0" text="Fillhere">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Button layoutX="472.0" layoutY="60.0" mnemonicParsing="false" text="Recipes" />
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="mybasketPane" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
-         <items>
-            <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+      <Pane layoutX="50.0">
+         <children>
+            <Button fx:id="usernameButton" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
+            <Button fx:id="mybasketButton" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
+            <Button fx:id="chiefsButton" layoutY="180.0" mnemonicParsing="false" onAction="#chiefsButtonClick" prefHeight="30.0" prefWidth="100.0" text="Chiefs" />
+            <Button layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
+            <Button fx:id="myfridgeButton" layoutY="340.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
+            <Button layoutY="420.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Settings" />
+            <Button layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Log out" />
+            <SplitPane fx:id="usernamePane" disable="true" layoutX="150.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" text="Search">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </TextField>
-                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
-                           </buttons>
-                        </ButtonBar>
-                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
-                           </buttons>
-                        </ButtonBar>
-                        <Label layoutX="776.0" layoutY="14.0" prefHeight="18.0" prefWidth="191.0" text="Do you have something new?" />
-                        <Button layoutX="821.0" layoutY="35.0" mnemonicParsing="false" text="Add new recipe" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                  <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="172.0" layoutY="40.0" text="Name Fill">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="157.0" layoutY="95.0" text="x" />
+                              <Label layoutX="191.0" layoutY="95.0" text="followers" />
+                              <Label layoutX="506.0" layoutY="49.0" text="Rating..." />
+                              <Button layoutX="52.0" layoutY="129.0" mnemonicParsing="false" text="editphoto" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="361.0" layoutY="30.0" text="Personal Info">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="621.0" layoutY="44.0" mnemonicParsing="false" text="Edit" />
+                              <Label layoutX="37.0" layoutY="120.0" text="Fillhere">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Button layoutX="472.0" layoutY="60.0" mnemonicParsing="false" text="Recipes" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <SplitPane fx:id="mybasketPane" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Label layoutX="361.0" layoutY="30.0" text="Add ingredient">
-                           <font>
-                              <Font size="42.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="389.0" layoutY="198.0" text="Search" />
-                        <Text layoutX="315.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato" />
-                        <Text layoutX="320.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Onion" />
-                        <Text layoutX="325.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salt" />
-                        <Text layoutX="315.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pepper" />
-                        <Button layoutX="438.0" layoutY="271.0" mnemonicParsing="false" text="Add" />
-                        <Button layoutX="448.0" layoutY="317.0" mnemonicParsing="false" text="Add" />
-                        <Button layoutX="448.0" layoutY="358.0" mnemonicParsing="false" text="Add" />
-                        <Button layoutX="445.0" layoutY="400.0" mnemonicParsing="false" text="Add" />
-                     </children>
-                  </AnchorPane>
+                  <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" promptText="Search">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
+                                 <buttons>
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
+                                 <buttons>
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                                 </buttons>
+                              </ButtonBar>
+                              <Label layoutX="776.0" layoutY="14.0" prefHeight="18.0" prefWidth="191.0" text="Do you have something new?" />
+                              <Button layoutX="821.0" layoutY="35.0" mnemonicParsing="false" text="Add new recipe" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                     </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="chiefsPane" disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane dividerPositions="0.14420935412026725, 0.3413140311804009, 0.5239420935412027, 0.7232739420935412" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <SplitPane disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <TextField layoutX="280.0" layoutY="18.0" prefHeight="50.0" prefWidth="400.0" promptText="Search" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="68.0" layoutY="77.0" text="chefname" />
-                        <Label layoutX="371.0" layoutY="87.0" text="about" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="998.0">
-                     <children>
-                        <Label layoutX="98.0" layoutY="70.0" text="chefname" />
-                        <Label layoutX="332.0" layoutY="62.0" text="about" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                     <children>
-                        <Label layoutX="66.0" layoutY="32.0" text="chefname" />
-                        <Label layoutX="330.0" layoutY="89.0" text="about" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="145.0" prefWidth="998.0">
-                     <children>
-                        <Label layoutX="74.0" layoutY="77.0" text="chefname" />
-                        <Label layoutX="324.0" layoutY="98.0" text="about" />
-                     </children>
-                  </AnchorPane>
+                  <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="361.0" layoutY="30.0" text="Add ingredient">
+                                 <font>
+                                    <Font size="42.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="389.0" layoutY="198.0" promptText="Search" />
+                              <Text layoutX="315.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tomato" />
+                              <Text layoutX="320.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Onion" />
+                              <Text layoutX="325.0" layoutY="373.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salt" />
+                              <Text layoutX="315.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pepper" />
+                              <Button layoutX="438.0" layoutY="271.0" mnemonicParsing="false" text="Add" />
+                              <Button layoutX="448.0" layoutY="317.0" mnemonicParsing="false" text="Add" />
+                              <Button layoutX="448.0" layoutY="358.0" mnemonicParsing="false" text="Add" />
+                              <Button layoutX="445.0" layoutY="400.0" mnemonicParsing="false" text="Add" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="myfridgePane" disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Label layoutX="218.0" layoutY="56.0" text="Ingredients" />
-                        <Label layoutX="223.0" layoutY="155.0" text="Label" />
-                        <Label layoutX="233.0" layoutY="208.0" text="Label" />
-                        <Button layoutX="224.0" layoutY="310.0" mnemonicParsing="false" text="Add Ingredient" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="222.0" layoutY="76.0" text="Recipes" />
-                        <Label layoutX="212.0" layoutY="171.0" text="Add more ingredients." />
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="recipesPane1" disable="true" layoutX="220.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+            <SplitPane fx:id="chiefsPane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <Label layoutX="387.0" layoutY="20.0" text="Add New Recipe" underline="true">
-                           <font>
-                              <Font name="System Bold Italic" size="44.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="59.0" layoutY="91.0" text="Add Photo">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="60.0" layoutY="140.0" mnemonicParsing="false" text="+">
-                           <font>
-                              <Font size="58.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="55.0" layoutY="284.0" text="Ingredients" underline="true">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="52.0" layoutY="445.0" text="How To Cook" underline="true">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="40.0" layoutY="514.0" prefHeight="163.0" prefWidth="911.0" promptText="Type your cooking method here.">
-                           <font>
-                              <Font size="17.0" />
-                           </font>
-                        </TextField>
-                     </children>
-                  </AnchorPane>
+                  <SplitPane dividerPositions="0.14420935412026725, 0.3413140311804009, 0.5239420935412027, 0.7232739420935412" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <TextField layoutX="280.0" layoutY="18.0" prefHeight="50.0" prefWidth="400.0" promptText="Search" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="68.0" layoutY="77.0" text="chefname" />
+                              <Label layoutX="371.0" layoutY="87.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="998.0">
+                           <children>
+                              <Label layoutX="98.0" layoutY="70.0" text="chefname" />
+                              <Label layoutX="332.0" layoutY="62.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Label layoutX="66.0" layoutY="32.0" text="chefname" />
+                              <Label layoutX="330.0" layoutY="89.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="145.0" prefWidth="998.0">
+                           <children>
+                              <Label layoutX="74.0" layoutY="77.0" text="chefname" />
+                              <Label layoutX="324.0" layoutY="98.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="mybasketPane1" disable="true" layoutX="220.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+            <SplitPane fx:id="myfridgePane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" text="Search">
-                           <font>
-                              <Font size="30.0" />
-                           </font>
-                        </TextField>
-                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Trends" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
-                           </buttons>
-                        </ButtonBar>
-                        <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
-                           <buttons>
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
-                              <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
-                           </buttons>
-                        </ButtonBar>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                  <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Label layoutX="218.0" layoutY="56.0" text="Ingredients" />
+                              <Label layoutX="223.0" layoutY="155.0" text="Label" />
+                              <Label layoutX="233.0" layoutY="208.0" text="Label" />
+                              <Button layoutX="224.0" layoutY="310.0" mnemonicParsing="false" text="Add Ingredient" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="222.0" layoutY="76.0" text="Recipes" />
+                              <Label layoutX="212.0" layoutY="171.0" text="Add more ingredients." />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="mybasketPane11" disable="true" layoutX="230.0" layoutY="30.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+            <SplitPane fx:id="recipesPane1" disable="true" layoutX="170.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <Label layoutX="42.0" layoutY="15.0" prefHeight="38.0" prefWidth="273.0" text="Change Username" underline="true">
-                           <font>
-                              <Font name="System Bold Italic" size="31.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="47.0" layoutY="71.0" prefHeight="26.0" prefWidth="210.0" promptText="New Username" />
-                        <Button layoutX="43.0" layoutY="113.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Submit" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <Label layoutX="38.0" layoutY="31.0" text="Change Password" underline="true">
-                           <font>
-                              <Font size="31.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="32.0" layoutY="89.0" prefHeight="26.0" prefWidth="222.0" promptText="Old Password" />
-                        <TextField layoutX="32.0" layoutY="135.0" prefHeight="26.0" prefWidth="222.0" promptText="New Password" />
-                        <TextField layoutX="33.0" layoutY="175.0" prefHeight="26.0" prefWidth="222.0" promptText="Re-enter New Password" />
-                        <Button layoutX="34.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
-                        <Label layoutX="39.0" layoutY="278.0" text="Delete my Account" underline="true">
-                           <font>
-                              <Font size="31.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="33.0" layoutY="342.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
-                        <TextField layoutX="35.0" layoutY="386.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
-                        <Button layoutX="36.0" layoutY="433.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
-                     </children>
-                  </AnchorPane>
+                  <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Label layoutX="387.0" layoutY="20.0" text="Add New Recipe" underline="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="44.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="59.0" layoutY="91.0" text="Add Photo">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="60.0" layoutY="140.0" mnemonicParsing="false" text="+">
+                                 <font>
+                                    <Font size="58.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="55.0" layoutY="284.0" text="Ingredients" underline="true">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="52.0" layoutY="445.0" text="How To Cook" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="40.0" layoutY="514.0" prefHeight="163.0" prefWidth="911.0" promptText="Type your cooking method here.">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
-      <SplitPane fx:id="mybasketPane111" disable="true" layoutX="240.0" layoutY="40.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
-         <items>
-            <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+            <SplitPane fx:id="mybasketPane1" disable="true" layoutX="170.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
-                     <children>
-                        <Label layoutX="280.0" layoutY="44.0" text="Do you want to log out?" underline="true">
-                           <font>
-                              <Font name="Apple SD Gothic Neo Bold" size="41.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="201.0" layoutY="170.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="222.0" text="No, take me back to homepage" />
-                        <Button layoutX="544.0" layoutY="167.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="228.0" text="Yes" />
-                     </children>
-                  </AnchorPane>
+                  <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" promptText="Search">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="121.0" prefHeight="25.0" prefWidth="815.0">
+                                 <buttons>
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Trends" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                                 </buttons>
+                              </ButtonBar>
+                              <ButtonBar buttonMinWidth="200.0" layoutX="74.0" layoutY="122.0" prefHeight="25.0" prefWidth="815.0" visible="false">
+                                 <buttons>
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="All" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Desserts" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Traditional" />
+                                    <Button mnemonicParsing="false" prefWidth="100.0" text="Fast Food" />
+                                 </buttons>
+                              </ButtonBar>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                     </items>
+                  </SplitPane>
                </items>
             </SplitPane>
-         </items>
-      </SplitPane>
+            <SplitPane fx:id="mybasketPane11" disable="true" layoutX="180.0" layoutY="30.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+               <items>
+                  <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Label layoutX="42.0" layoutY="15.0" prefHeight="38.0" prefWidth="273.0" text="Change Username" underline="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="31.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="47.0" layoutY="71.0" prefHeight="26.0" prefWidth="210.0" promptText="New Username" />
+                              <Button layoutX="43.0" layoutY="113.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Submit" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Label layoutX="38.0" layoutY="31.0" text="Change Password" underline="true">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="32.0" layoutY="89.0" prefHeight="26.0" prefWidth="222.0" promptText="Old Password" />
+                              <TextField layoutX="32.0" layoutY="135.0" prefHeight="26.0" prefWidth="222.0" promptText="New Password" />
+                              <TextField layoutX="33.0" layoutY="175.0" prefHeight="26.0" prefWidth="222.0" promptText="Re-enter New Password" />
+                              <Button layoutX="34.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
+                              <Label layoutX="39.0" layoutY="278.0" text="Delete my Account" underline="true">
+                                 <font>
+                                    <Font size="31.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="33.0" layoutY="342.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
+                              <TextField layoutX="35.0" layoutY="386.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
+                              <Button layoutX="36.0" layoutY="433.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </items>
+            </SplitPane>
+            <SplitPane fx:id="mybasketPane111" disable="true" layoutX="190.0" layoutY="40.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+               <items>
+                  <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Label layoutX="280.0" layoutY="44.0" text="Do you want to log out?" underline="true">
+                                 <font>
+                                    <Font name="Apple SD Gothic Neo Bold" size="41.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="201.0" layoutY="170.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="222.0" text="No, take me back to homepage" />
+                              <Button layoutX="544.0" layoutY="167.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="228.0" text="Yes" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </items>
+            </SplitPane>
+         </children>
+      </Pane>
+      <Pane disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
+         <children>
+            <Label layoutX="548.0" layoutY="271.0" prefHeight="110.0" prefWidth="105.0" text="LOGIN">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+               </font>
+            </Label>
+            <TextField layoutX="520.0" layoutY="369.0" promptText="Username" />
+            <TextField layoutX="520.0" layoutY="400.0" promptText="Password" />
+            <Text depthTest="ENABLE" layoutX="531.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
+            <Text layoutX="585.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
+            <Text depthTest="ENABLE" layoutX="534.0" layoutY="495.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account." underline="true" />
+            <Button layoutX="531.0" layoutY="478.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Button" visible="false" />
+            <Button layoutX="521.0" layoutY="436.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="135.0" text="Button" visible="false" />
+            <Button layoutX="540.0" layoutY="523.0" mnemonicParsing="false" text="Log In">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane disable="true" layoutX="10.0" layoutY="10.0" prefHeight="900.0" prefWidth="1200.0" visible="false">
+         <children>
+            <Label layoutX="524.0" layoutY="268.0" prefHeight="110.0" prefWidth="216.0" text="REGISTER">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
+               </font>
+            </Label>
+            <TextField layoutX="524.0" layoutY="345.0" promptText="Username" />
+            <TextField layoutX="524.0" layoutY="381.0" promptText="Password" />
+            <TextField layoutX="524.0" layoutY="412.0" promptText="re-enter your password." />
+            <Button layoutX="540.0" layoutY="458.0" mnemonicParsing="false" text="Register">
+               <font>
+                  <Font name="Apple SD Gothic Neo Bold" size="22.0" />
+               </font>
+            </Button>
+            <Text layoutX="516.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
+            <Text layoutX="660.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in." underline="true" />
+            <Button layoutX="660.0" layoutY="520.0" mnemonicParsing="false" text="Button" visible="false" />
+         </children>
+      </Pane>
    </children>
 </Pane>
