@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -12,7 +14,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yenia.HelloController">
    <children>
-      <Pane layoutX="50.0">
+      <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../assets/white.jpg" />
+         </image>
+      </ImageView>
+      <Pane disable="true" layoutX="50.0" visible="false">
          <children>
             <Button fx:id="usernameButton" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
             <Button fx:id="mybasketButton" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
@@ -318,15 +325,25 @@
                   </SplitPane>
                </items>
             </SplitPane>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-50.0" layoutY="809.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="-13.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/avatar.jpeg" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
       <Pane disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
-            <Label layoutX="548.0" layoutY="271.0" prefHeight="110.0" prefWidth="105.0" text="LOGIN">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
-               </font>
-            </Label>
+            <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/white.jpg" />
+               </image>
+            </ImageView>
             <TextField layoutX="520.0" layoutY="369.0" promptText="Username" />
             <TextField layoutX="520.0" layoutY="400.0" promptText="Password" />
             <Text depthTest="ENABLE" layoutX="531.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
@@ -339,15 +356,20 @@
                   <Font name="Apple SD Gothic Neo Bold" size="22.0" />
                </font>
             </Button>
+            <ImageView fitHeight="182.0" fitWidth="339.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="506.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/login.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Pane disable="true" layoutX="10.0" layoutY="10.0" prefHeight="900.0" prefWidth="1200.0" visible="false">
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="900.0" prefWidth="1200.0">
          <children>
-            <Label layoutX="524.0" layoutY="268.0" prefHeight="110.0" prefWidth="216.0" text="REGISTER">
-               <font>
-                  <Font name="Apple SD Gothic Neo Regular" size="36.0" />
-               </font>
-            </Label>
             <TextField layoutX="524.0" layoutY="345.0" promptText="Username" />
             <TextField layoutX="524.0" layoutY="381.0" promptText="Password" />
             <TextField layoutX="524.0" layoutY="412.0" promptText="re-enter your password." />
@@ -359,6 +381,16 @@
             <Text layoutX="516.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already have an account?" />
             <Text layoutX="660.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log in." underline="true" />
             <Button layoutX="660.0" layoutY="520.0" mnemonicParsing="false" text="Button" visible="false" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="500.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/register.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="182.0" fitWidth="339.0" layoutX="41.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../assets/logo.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>
