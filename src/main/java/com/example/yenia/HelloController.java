@@ -12,6 +12,8 @@ public class HelloController {
     private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton;
     @FXML
     private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane;
+    @FXML
+    private Pane loginPane,registerPane;
 
     private int currentPage=3;
     @FXML
@@ -25,14 +27,27 @@ public class HelloController {
         changePage(4);
     }
     @FXML
-    protected void chiefsButtonClick()
-    {
-        changePage(2);
-    }
+    protected void chiefsButtonClick() {changePage(2);}
     @FXML
     protected void mybasketButtonClick()
     {
         changePage(1);
+    }
+    @FXML
+    protected void createAccButtonClick()
+    {
+        loginPane.setVisible(false);
+        loginPane.setDisable(true);
+        registerPane.setVisible(true);
+        registerPane.setDisable(false);
+    }
+    @FXML
+    protected void regLoginButtonClick()
+    {
+        loginPane.setVisible(true);
+        loginPane.setDisable(false);
+        registerPane.setVisible(false);
+        registerPane.setDisable(true);
     }
     public void changePage(int i)
     {
