@@ -13,9 +13,9 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yenia.HelloController">
    <children>
       <Button fx:id="usernameButton" layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
-      <Button layoutX="50.0" layoutY="100.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
+      <Button fx:id="mybasketButton" layoutX="50.0" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
       <Button fx:id="chiefsButton" layoutX="50.0" layoutY="180.0" mnemonicParsing="false" onAction="#chiefsButtonClick" prefHeight="30.0" prefWidth="100.0" text="Chiefs" />
-      <Button fx:id="recipesButton" layoutX="50.0" layoutY="260.0" mnemonicParsing="false" onAction="#recipesButtonClick" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
+      <Button layoutX="50.0" layoutY="260.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Recipes" />
       <Button fx:id="myfridgeButton" layoutX="50.0" layoutY="340.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
       <Button layoutX="50.0" layoutY="420.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Settings" />
       <Button layoutX="50.0" layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Log out" />
@@ -60,7 +60,7 @@
             </SplitPane>
          </items>
       </SplitPane>
-      <SplitPane fx:id="recipesPane" disable="true" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+      <SplitPane fx:id="mybasketPane" layoutX="210.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
          <items>
             <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                <items>

@@ -9,9 +9,9 @@ import javafx.scene.layout.Pane;
 public class HelloController {
 
     @FXML
-    private Button usernameButton,recipesButton,chiefsButton,myfridgeButton;
+    private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton;
     @FXML
-    private SplitPane recipesPane,usernamePane,chiefsPane,myfridgePane;
+    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane;
 
     private int currentPage=3;
     @FXML
@@ -20,9 +20,9 @@ public class HelloController {
         changePage(0);
     }
     @FXML
-    protected void recipesButtonClick()
+    protected void myfridgeButtonClick()
     {
-        changePage(3);
+        changePage(4);
     }
     @FXML
     protected void chiefsButtonClick()
@@ -30,9 +30,9 @@ public class HelloController {
         changePage(2);
     }
     @FXML
-    protected void myfridgeButtonClick()
+    protected void mybasketButtonClick()
     {
-        changePage(4);
+        changePage(1);
     }
     public void changePage(int i)
     {
@@ -45,7 +45,7 @@ public class HelloController {
     public SplitPane getCurrentPage()
     {
         if(currentPage==4)return myfridgePane;
-        if(currentPage==3)return recipesPane;
+        if(currentPage==1)return mybasketPane;
         if(currentPage==2)return chiefsPane;
         return usernamePane;
     }
