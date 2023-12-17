@@ -1,0 +1,12 @@
+// This is a explanation of which index represents which page
+// For example register page is index 0 or register page is index 1
+
+pageIndexes:
+[
+    0 -> Register Page
+    1 -> Login Page
+    2 -> User Page
+    3 -> Recipe Page
+    4 -> Basket Page
+    5 ->
+]

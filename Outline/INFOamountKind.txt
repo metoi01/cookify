@@ -1,0 +1,14 @@
+// This is a explanation of what integer represent which amount kind
+// The kinds are like: "Grams", "Spoons", "Glasses" ect.
+
+Kinds:
+[
+    0 -> Grams
+    1 -> Kilograms 
+    2 -> Miligrams
+    3 -> Spoons
+    4 -> Tea Spoons
+    5 -> Glasses
+    6 -> Liters
+    7 -> Mililiters
+]

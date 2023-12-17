@@ -1,0 +1,32 @@
+//This is a explanation of what integer represents which sections.
+//The sections are the foods kinds like "desert", "traditional" ect.
+
+Sections:
+[
+    0 -> Fast food
+    1 -> Desert
+    2 -> Pasta
+    3 -> Cake
+    4 -> Low Calory
+    5 -> Vegetarian
+    6 -> Vegan
+    7 -> Traditional
+    8 -> Salad
+    9 -> Pizza
+    10 -> Tost & Sandwich
+    11 -> Burger
+    12 -> Breakfast
+    13 -> Soup
+    14 -> Snacks
+    15 -> Lactoz free
+    16 -> Bread
+    17 -> Steak
+    18 -> Drinks
+    19 -> Coffe & Tea
+    20 -> Fish & Sea Food
+    21 -> Choclate
+    22 -> High protein
+    23 -> Healthy Food
+]
+
+// There are 24 sections
