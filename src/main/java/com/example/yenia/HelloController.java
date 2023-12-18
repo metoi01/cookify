@@ -18,20 +18,20 @@ public class HelloController {
     @FXML
     private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton,personalInfoEdit,personalInfoDone;
     @FXML
-    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane;
+    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane,otherProfilePane;
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
     private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch;
     @FXML
-    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum;
+    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo;
     @FXML
-    private Label profilePageName,profilePageFollowers,profilePageVoteRate;
+    private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote;
 
 
     //AL Variables
     private DataBase db=new DataBase();
-    private int currentPage=0;
+    private int currentPage=2;
     private int chiefsSection=0;
     //Methods
 
@@ -191,8 +191,47 @@ public class HelloController {
         }
         updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
     }
+    @FXML
+    protected void chiefs1ButtonClick()
+    {
+        visitProfile(chiefs1.getText());
+    }
+    @FXML
+    protected void chiefs2ButtonClick()
+    {
+        visitProfile(chiefs2.getText());
+    }
+    @FXML
+    protected void chiefs3ButtonClick()
+    {
+        visitProfile(chiefs3.getText());
+    }
+    @FXML
+    protected void chiefs4ButtonClick()
+    {
+        visitProfile(chiefs4.getText());
+    }
+    @FXML
+    protected void chiefs5ButtonClick()
+    {
+        visitProfile(chiefs5.getText());
+    }
+    @FXML
+    protected void chiefs6ButtonClick()
+    {
+        visitProfile(chiefs6.getText());
+    }
+
 
     //AL Methods
+    public void visitProfile(String username)
+    {
+        changePage(7);
+        otherProfileName.setText(username);
+        otherProfileFollowers.setText(db.getFollowerCountOf(username)+" ");
+        otherProfileVote.setText(db.getVoteRateOf(username)+"/5");
+        otherProfilePersonalInfo.setText(db.getPersonalInfoOf(username));
+    }
     public ArrayList<String> sortListSearch(ArrayList<String>list,String searchText)
     {
         ArrayList<String>out=new ArrayList<>();
@@ -250,6 +289,7 @@ public class HelloController {
         if(currentPage==3)return recipesPane;
         if(currentPage==5)return settingsPane;
         if(currentPage==6)return logoutPane;
+        if(currentPage==7)return otherProfilePane;
         return usernamePane;
     }
     public void updateProfilePageGUI()
@@ -265,13 +305,14 @@ public class HelloController {
         chiefsPageNum.setText("Page: "+(chiefsSection+1));
         ArrayList<String> sorted=sortChiefs(list);
         chiefs1.setText(" ");chiefs2.setText(" ");chiefs3.setText(" ");chiefs4.setText(" ");chiefs5.setText(" ");chiefs6.setText(" ");
+        chiefs1.setDisable(true);chiefs2.setDisable(true);chiefs3.setDisable(true);chiefs4.setDisable(true);chiefs5.setDisable(true);chiefs6.setDisable(true);
         rating1.setText(" ");rating2.setText(" ");rating3.setText(" ");rating4.setText(" ");rating5.setText(" ");rating6.setText(" ");
-        if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection*6));
-        if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection*6+1));
-        if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection*6+2));
-        if(sorted.size()>chiefsSection*6+3)chiefs4.setText(sorted.get(chiefsSection*6+3));
-        if(sorted.size()>chiefsSection*6+4)chiefs5.setText(sorted.get(chiefsSection*6+4));
-        if(sorted.size()>chiefsSection*6+5)chiefs6.setText(sorted.get(chiefsSection*6+5));
+        if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection*6));chiefs1.setDisable(false);
+        if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection*6+1));chiefs2.setDisable(false);
+        if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection*6+2));chiefs3.setDisable(false);
+        if(sorted.size()>chiefsSection*6+3)chiefs4.setText(sorted.get(chiefsSection*6+3));chiefs4.setDisable(false);
+        if(sorted.size()>chiefsSection*6+4)chiefs5.setText(sorted.get(chiefsSection*6+4));chiefs5.setDisable(false);
+        if(sorted.size()>chiefsSection*6+5)chiefs6.setText(sorted.get(chiefsSection*6+5));chiefs6.setDisable(false);
         if(sorted.size()>chiefsSection*6) rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6)));
         if(sorted.size()>chiefsSection*6+1)rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+1))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+1)));
         if(sorted.size()>chiefsSection*6+2)rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+2))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+2)));
