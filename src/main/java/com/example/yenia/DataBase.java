@@ -24,7 +24,7 @@ public class DataBase {
 
     //TODO This method will check if the inputed name is a user in the server; if it is return true, else return false.
     public boolean doesUserExists(String name){
-        return true;
+        return false;
     }
 
 

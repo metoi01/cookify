@@ -19,7 +19,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane disable="true" layoutX="50.0" visible="false">
+      <Pane fx:id="mainPane" disable="true" layoutX="50.0" visible="false">
          <children>
             <Button fx:id="usernameButton" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
             <Button fx:id="mybasketButton" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
@@ -344,14 +344,14 @@
                   <Image url="@../../../assets/white.jpg" />
                </image>
             </ImageView>
-            <TextField layoutX="520.0" layoutY="369.0" promptText="Username" />
-            <TextField layoutX="520.0" layoutY="400.0" promptText="Password" />
+            <TextField fx:id="loginUsername" layoutX="520.0" layoutY="369.0" promptText="Username" />
+            <TextField fx:id="loginPassword" layoutX="520.0" layoutY="400.0" promptText="Password" />
             <Text depthTest="ENABLE" layoutX="531.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
             <Text layoutX="585.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
             <Text depthTest="ENABLE" layoutX="534.0" layoutY="495.0" onMouseClicked="#createAccButtonClick" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account." underline="true" />
             <Button layoutX="531.0" layoutY="478.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" text="Button" visible="false" />
             <Button layoutX="521.0" layoutY="436.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="135.0" text="Button" visible="false" />
-            <Button layoutX="540.0" layoutY="523.0" mnemonicParsing="false" text="Log In">
+            <Button layoutX="540.0" layoutY="523.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Log In">
                <font>
                   <Font name="Apple SD Gothic Neo Bold" size="22.0" />
                </font>
@@ -366,6 +366,7 @@
                   <Image url="@../../../assets/login.png" />
                </image>
             </ImageView>
+            <Text fx:id="loginError" depthTest="ENABLE" fill="RED" layoutX="530.0" layoutY="359.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" underline="true" />
          </children>
       </Pane>
       <Pane fx:id="registerPane" disable="true" layoutX="10.0" layoutY="10.0" prefHeight="900.0" prefWidth="1200.0" visible="false">
