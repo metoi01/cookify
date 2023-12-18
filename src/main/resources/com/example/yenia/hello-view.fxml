@@ -20,7 +20,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" prefHeight="900.0" prefWidth="1200.0">
+      <Pane fx:id="mainPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
@@ -36,7 +36,7 @@
             <Button fx:id="myfridgeButton" layoutY="327.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="83.0" prefWidth="199.0" text="My Fridge" />
             <Button layoutY="413.0" mnemonicParsing="false" onAction="#settingsButtonClick" prefHeight="83.0" prefWidth="199.0" text="Settings" />
             <Button layoutY="502.0" mnemonicParsing="false" onAction="#logoutButtonClick" prefHeight="83.0" prefWidth="199.0" text="Log out" />
-            <SplitPane fx:id="usernamePane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="usernamePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.17538975501113585, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
@@ -252,49 +252,97 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="chiefsPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="chiefsPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.11859688195991092, 0.2900890868596882, 0.4471046770601336, 0.6208240534521158, 0.826837416481069, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="998.0">
                            <children>
-                              <TextField layoutX="280.0" layoutY="5.0" prefHeight="45.0" prefWidth="400.0" promptText="Search" />
+                              <TextField layoutX="22.0" layoutY="4.0" prefHeight="45.0" prefWidth="400.0" promptText="Search" />
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="68.0" layoutY="77.0" text="chefname" />
-                              <Label layoutX="371.0" layoutY="87.0" text="about" />
+                              <Text fx:id="chiefs1" layoutX="79.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="372.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating1" layoutX="522.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="98.0" layoutY="70.0" text="chefname" />
-                              <Label layoutX="332.0" layoutY="62.0" text="about" />
+                              <Text fx:id="chiefs2" layoutX="76.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="339.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating2" layoutX="521.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="66.0" layoutY="32.0" text="chefname" />
-                              <Label layoutX="330.0" layoutY="89.0" text="about" />
+                              <Text fx:id="chiefs3" layoutX="81.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="400.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating3" layoutX="523.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="74.0" layoutY="77.0" text="chefname" />
-                              <Label layoutX="324.0" layoutY="98.0" text="about" />
+                              <Text fx:id="chiefs4" layoutX="82.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="400.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating4" layoutX="524.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="74.0" layoutY="77.0" text="chefname" />
-                              <Label layoutX="324.0" layoutY="98.0" text="about" />
+                              <Text fx:id="chiefs5" layoutX="80.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="400.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating5" layoutX="525.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
-                              <Label layoutX="98.0" layoutY="70.0" text="chefname" />
-                              <Label layoutX="332.0" layoutY="62.0" text="about" />
+                              <Text fx:id="chiefs6" layoutX="82.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chief Name" wrappingWidth="400.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="rating6" layoutX="525.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                                 <font>
+                                    <Font name="Bell MT" size="30.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </items>
@@ -470,7 +518,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
+      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <ImageView fitHeight="900.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
                <image>

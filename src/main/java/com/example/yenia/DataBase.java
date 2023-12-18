@@ -64,6 +64,15 @@ public class DataBase {
     // USER ATTRIBUTES
     // (Likes, comments, votes...)
     //
+    //TODO This method will get all users' usernames in an arraylist.
+    public ArrayList<String> getAllUsers()
+    {
+        ArrayList<String>test=new ArrayList<>();
+        test.add("dawson");
+        test.add("mert");
+        test.add("burak");
+        return test;
+    }
 
     //TODO This method will get the current voteRate out of five. For example if it is 4/5, method returns 4.
     public float getVoteRateOf(String username){
@@ -93,7 +102,8 @@ public class DataBase {
     //
     // RECIPE ATTIRIBUTES
     //
-
+    //TODO This method will get all the recipes' ids in an arraylist.
+    public ArrayList<Integer> getAllRecipes(){return null;}
     //TODO Ths method will create a new recipe and return its ID
     public String createNewRecipe(){
         return null;
