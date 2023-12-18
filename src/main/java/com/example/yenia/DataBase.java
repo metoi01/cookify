@@ -68,9 +68,7 @@ public class DataBase {
     public ArrayList<String> getAllUsers()
     {
         ArrayList<String>test=new ArrayList<>();
-        test.add("dawson");
-        test.add("mert");
-        test.add("burak");
+        test.add("dawson");test.add("mert");test.add("burak");test.add("batu");test.add("yusuf");test.add("jonathan");test.add("hasan");test.add("ali");test.add("turgut");test.add("recep");test.add("tayyip");test.add("furkan");
         return test;
     }
 

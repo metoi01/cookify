@@ -258,12 +258,17 @@
                      <items>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="998.0">
                            <children>
-                              <TextField layoutX="22.0" layoutY="4.0" prefHeight="45.0" prefWidth="400.0" promptText="Search" />
-                              <Button layoutX="430.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" text="Search">
+                              <TextField fx:id="chiefsSearch" layoutX="22.0" layoutY="4.0" prefHeight="45.0" prefWidth="400.0" promptText="Search" />
+                              <Button layoutX="430.0" layoutY="11.0" mnemonicParsing="false" onAction="#chiefsSearchButtonClick" prefHeight="25.0" prefWidth="139.0" text="Search">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Button>
+                              <Text fx:id="chiefsPageNum" layoutX="602.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page Number:" wrappingWidth="372.0">
+                                 <font>
+                                    <Font name="Bell MT" size="25.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
@@ -273,12 +278,12 @@
                                     <Font name="Bell MT" size="30.0" />
                                  </font>
                               </Text>
-                              <Text fx:id="rating1" layoutX="522.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
+                              <Text fx:id="rating1" layoutX="522.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating: x.y/5" wrappingWidth="199.0">
                                  <font>
                                     <Font name="Bell MT" size="30.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="932.0" layoutY="14.0" mnemonicParsing="false" text="Up" />
+                              <Button layoutX="932.0" layoutY="14.0" mnemonicParsing="false" onAction="#chiefsUpButtonClick" text="Up" />
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
@@ -349,7 +354,7 @@
                                     <Font name="Bell MT" size="30.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="932.0" layoutY="95.0" mnemonicParsing="false" text="Down" />
+                              <Button layoutX="932.0" layoutY="95.0" mnemonicParsing="false" onAction="#chiefsDownClick" text="Down" />
                            </children>
                         </AnchorPane>
                      </items>

@@ -22,9 +22,9 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch;
     @FXML
-    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6;
+    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate;
 
@@ -101,7 +101,7 @@ public class HelloController {
                 mainPane.setVisible(true);
                 mainPane.setDisable(false);
                 updateProfilePageGUI();
-                updateChiefsPageGUI();
+                updateChiefsPageGUI(db.getAllUsers());
             }
             else
             {
@@ -145,7 +145,7 @@ public class HelloController {
             mainPane.setVisible(true);
             mainPane.setDisable(false);
             updateProfilePageGUI();
-            updateChiefsPageGUI();
+            updateChiefsPageGUI(db.getAllUsers());
         }
     }
     @FXML
@@ -170,7 +170,26 @@ public class HelloController {
     @FXML
     protected void chiefsSearchButtonClick()
     {
-        sortListSearch(db.getAllUsers(),"adas");
+        updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
+        chiefsSection=0;
+    }
+    @FXML
+    protected void chiefsUpButtonClick()
+    {
+        if(chiefsSection>0)
+        {
+            chiefsSection--;
+        }
+        updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
+    }
+    @FXML
+    protected void chiefsDownClick()
+    {
+        if(sortListSearch(db.getAllUsers(),chiefsSearch.getText()).size()>(chiefsSection+1)*6)
+        {
+           chiefsSection++;
+        }
+        updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
     }
 
     //AL Methods
@@ -236,36 +255,25 @@ public class HelloController {
         profilePageName.setText(UserMemory.getName());
         profilePageFollowers.setText(Integer.toString(db.getFollowerCountOf(UserMemory.getName())));
         profilePageVoteRate.setText(db.getVoteRateOf(UserMemory.getName())+"/5");
-        ArrayList<String> sorted=sortChiefs(db.getAllUsers());
-        if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection));
-        if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection+1));
-        if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection+2));
-        if(sorted.size()>chiefsSection*6+3)chiefs4.setText(sorted.get(chiefsSection+3));
-        if(sorted.size()>chiefsSection*6+4)chiefs5.setText(sorted.get(chiefsSection+4));
-        if(sorted.size()>chiefsSection*6+5)chiefs6.setText(sorted.get(chiefsSection+5));
-        if(sorted.size()>chiefsSection*6) rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection))+"/5");
-        if(sorted.size()>chiefsSection*6+1)rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+1))+"/5");
-        if(sorted.size()>chiefsSection*6+2)rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+2))+"/5");
-        if(sorted.size()>chiefsSection*6+3)rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+3))+"/5");
-        if(sorted.size()>chiefsSection*6+4)rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+4))+"/5");
-        if(sorted.size()>chiefsSection*6+5)rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+5))+"/5");
     }
-    public void updateChiefsPageGUI()
+    public void updateChiefsPageGUI(ArrayList<String> list)
     {
-        ArrayList<String> sorted=sortChiefs(db.getAllUsers());
-        if(!sorted.isEmpty()) chiefs1.setText(sorted.get(chiefsSection));
-        else chiefs1.setText("No Chiefs Found.");
-        if(sorted.size()>1)chiefs2.setText(sorted.get(chiefsSection+1));
-        if(sorted.size()>2)chiefs3.setText(sorted.get(chiefsSection+2));
-        if(sorted.size()>3)chiefs4.setText(sorted.get(chiefsSection+3));
-        if(sorted.size()>4)chiefs5.setText(sorted.get(chiefsSection+4));
-        if(sorted.size()>5)chiefs6.setText(sorted.get(chiefsSection+5));
-        if(!sorted.isEmpty()) rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection))+"/5");
-        if(sorted.size()>1)rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+1))+"/5");
-        if(sorted.size()>2)rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+2))+"/5");
-        if(sorted.size()>3)rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+3))+"/5");
-        if(sorted.size()>4)rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+4))+"/5");
-        if(sorted.size()>5)rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection+5))+"/5");
+        chiefsPageNum.setText("Page: "+(chiefsSection+1));
+        ArrayList<String> sorted=sortChiefs(list);
+        chiefs1.setText(" ");chiefs2.setText(" ");chiefs3.setText(" ");chiefs4.setText(" ");chiefs5.setText(" ");chiefs6.setText(" ");
+        rating1.setText(" ");rating2.setText(" ");rating3.setText(" ");rating4.setText(" ");rating5.setText(" ");rating6.setText(" ");
+        if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection*6));
+        if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection*6+1));
+        if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection*6+2));
+        if(sorted.size()>chiefsSection*6+3)chiefs4.setText(sorted.get(chiefsSection*6+3));
+        if(sorted.size()>chiefsSection*6+4)chiefs5.setText(sorted.get(chiefsSection*6+4));
+        if(sorted.size()>chiefsSection*6+5)chiefs6.setText(sorted.get(chiefsSection*6+5));
+        if(sorted.size()>chiefsSection*6) rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6)));
+        if(sorted.size()>chiefsSection*6+1)rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+1))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+1)));
+        if(sorted.size()>chiefsSection*6+2)rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+2))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+2)));
+        if(sorted.size()>chiefsSection*6+3)rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+3))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+3)));
+        if(sorted.size()>chiefsSection*6+4)rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+4))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+4)));
+        if(sorted.size()>chiefsSection*6+5)rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+5))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+5)));
     }
 
 }
