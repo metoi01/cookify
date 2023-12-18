@@ -20,7 +20,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" layoutX="50.0">
+      <Pane fx:id="mainPane" disable="true" layoutX="50.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" layoutX="-49.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="-50.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="210.0" />
@@ -47,14 +47,14 @@
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="172.0" layoutY="40.0" text="Name Fill">
+                              <Label fx:id="profilePageName" layoutX="172.0" layoutY="40.0" text="Name Fill">
                                  <font>
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="172.0" layoutY="95.0" text="x" />
-                              <Label layoutX="191.0" layoutY="95.0" text="followers" />
-                              <Label layoutX="491.0" layoutY="48.0" prefHeight="27.0" prefWidth="156.0" text="x/5 from a votes." textFill="#d3d704">
+                              <Label fx:id="profilePageFollowers" layoutX="172.0" layoutY="95.0" text="0" />
+                              <Label layoutX="202.0" layoutY="95.0" text="followers" />
+                              <Label fx:id="profilePageVoteRate" layoutX="491.0" layoutY="48.0" prefHeight="27.0" prefWidth="260.0" text="x/5 from a votes." textFill="#d3d704">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Label>
@@ -63,21 +63,12 @@
                                     <Image url="@../../../assets/avatar.jpeg" />
                                  </image>
                               </ImageView>
-                              <Text layoutX="69.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" underline="true" wrappingWidth="32.0">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Text>
                               <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="449.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../assets/star.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="16.0" fitWidth="41.0" layoutX="101.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../assets/pen.png" />
-                                 </image>
-                              </ImageView>
+                              <Button layoutX="82.0" layoutY="100.0" mnemonicParsing="false" text="Edit" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -92,12 +83,9 @@
                                     <Font size="42.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="617.0" layoutY="52.0" mnemonicParsing="false" text="Edit" />
-                              <Label layoutX="37.0" layoutY="120.0" text="Fillhere">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
+                              <Button fx:id="personalInfoEdit" layoutX="617.0" layoutY="52.0" mnemonicParsing="false" onAction="#personalInfoEditButtonClick" text="Edit" />
+                              <Button fx:id="personalInfoDone" disable="true" layoutX="618.0" layoutY="52.0" mnemonicParsing="false" onAction="#personalInfoDoneButtonClick" text="Done" visible="false" />
+                              <TextField fx:id="personalInfo" alignment="TOP_LEFT" editable="false" layoutX="52.0" layoutY="92.0" prefHeight="344.0" prefWidth="911.0" text="Fill Here" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -466,7 +454,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
+      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                <image>
