@@ -199,12 +199,16 @@ public class HelloController {
         for(int i=0;i<list.size();i++)
         {
             boolean isValid=true;
-            for(int a=0;a<searchText.length();a++)
+            for(int a=0;a<searchText.length()&& searchText.length()<=list.get(i).length();a++)
             {
                if(!(searchText.charAt(a)==list.get(i).charAt(a)))
                {
                    isValid=false;
                }
+            }
+            if(!(searchText.length()<=list.get(i).length()))
+            {
+                isValid=false;
             }
             if(isValid)
             {
