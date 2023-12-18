@@ -15,8 +15,6 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane;
 
-
-
     private int currentPage=3;
     @FXML
     protected void usernameButtonClick()
