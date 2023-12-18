@@ -19,7 +19,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" disable="true" layoutX="50.0" visible="false">
+      <Pane fx:id="mainPane" layoutX="50.0">
          <children>
             <Button fx:id="usernameButton" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
             <Button fx:id="mybasketButton" layoutY="100.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Basket" />
@@ -28,7 +28,7 @@
             <Button fx:id="myfridgeButton" layoutY="340.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="30.0" prefWidth="100.0" text="My Fridge" />
             <Button layoutY="420.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Settings" />
             <Button layoutY="500.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Log out" />
-            <SplitPane fx:id="usernamePane" disable="true" layoutX="150.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="usernamePane" layoutX="150.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
@@ -39,10 +39,32 @@
                                     <Font size="29.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="157.0" layoutY="95.0" text="x" />
+                              <Label layoutX="172.0" layoutY="95.0" text="x" />
                               <Label layoutX="191.0" layoutY="95.0" text="followers" />
-                              <Label layoutX="506.0" layoutY="49.0" text="Rating..." />
-                              <Button layoutX="52.0" layoutY="129.0" mnemonicParsing="false" text="editphoto" />
+                              <Label layoutX="491.0" layoutY="48.0" prefHeight="27.0" prefWidth="156.0" text="x/5 from a votes." textFill="#d3d704">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font></Label>
+                              <ImageView fitHeight="87.0" fitWidth="81.0" layoutX="60.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/avatar.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="74.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit" wrappingWidth="35.33203125">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="449.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/star.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="16.0" fitWidth="41.0" layoutX="102.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/pen.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -69,7 +91,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="mybasketPane" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="mybasketPane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -337,7 +359,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
+      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
             <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                <image>
