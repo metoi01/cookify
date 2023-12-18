@@ -16,7 +16,7 @@ public class HelloController {
     @FXML
     private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton;
     @FXML
-    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane;
+    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane;
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
@@ -46,6 +46,21 @@ public class HelloController {
     protected void mybasketButtonClick()
     {
         changePage(1);
+    }
+    @FXML
+    protected void recipesButtonClick()
+    {
+        changePage(3);
+    }
+    @FXML
+    protected void settingsButtonClick()
+    {
+        changePage(5);
+    }
+    @FXML
+    protected void logoutButtonClick()
+    {
+        changePage(6);
     }
     @FXML
     protected void createAccButtonClick()
@@ -121,6 +136,7 @@ public class HelloController {
             registerPane.setDisable(true);
             mainPane.setVisible(true);
             mainPane.setDisable(false);
+            usernameButton.setText(UserMemory.getName());
         }
     }
 
@@ -138,6 +154,9 @@ public class HelloController {
         if(currentPage==4)return myfridgePane;
         if(currentPage==1)return mybasketPane;
         if(currentPage==2)return chiefsPane;
+        if(currentPage==3)return recipesPane;
+        if(currentPage==5)return settingsPane;
+        if(currentPage==6)return logoutPane;
         return usernamePane;
     }
 
