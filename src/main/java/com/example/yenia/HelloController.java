@@ -20,9 +20,9 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2;
     @FXML
-    private Text loginError;
+    private Text loginError,registerError;
 
     //AL Variables
     private DataBase db=new DataBase();
@@ -66,7 +66,11 @@ public class HelloController {
     @FXML
     protected void loginButtonClick()
     {
-        if(db.doesUserExists(loginUsername.getText()))
+        if(loginUsername.getText().isEmpty()||loginPassword.getText().isEmpty())
+        {
+            loginError.setText("You must fill all the spaces.");
+        }
+        else if(db.doesUserExists(loginUsername.getText()))
         {
             if(db.getPasswordOf(loginUsername.getText()).equals(loginPassword.getText()))
             {
@@ -84,6 +88,39 @@ public class HelloController {
         else
         {
             loginError.setText("User cannot be found.");
+        }
+    }
+    @FXML
+    protected void registerButtonClick()
+    {
+        if(registerUsername.getText().isEmpty()||registerPassword1.getText().isEmpty()||registerPassword2.getText().isEmpty())
+        {
+            registerError.setText("You must fill all the spaces.");
+        }
+        else if(db.doesUserExists(registerUsername.getText()))
+        {
+            registerError.setText("Username already taken.");
+        }
+        else if(registerUsername.getText().length()<3||registerUsername.getText().length()>15)
+        {
+            registerError.setText("Username must be between 3 and 15 characters.");
+        }
+        else if(registerPassword1.getText().length()<3||registerPassword1.getText().length()>15)
+        {
+            registerError.setText("Password must be between 3 and 15 characters.");
+        }
+        else if(!registerPassword1.getText().equals(registerPassword2.getText()))
+        {
+            registerError.setText("Re-entered password is not valid.");
+        }
+        else
+        {
+            db.saveNewUser(registerUsername.getText(),registerPassword1.getText());
+            UserMemory.storeUser(registerUsername.getText(),registerPassword1.getText());
+            registerPane.setVisible(false);
+            registerPane.setDisable(true);
+            mainPane.setVisible(true);
+            mainPane.setDisable(false);
         }
     }
 
