@@ -21,7 +21,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
+      <Pane fx:id="mainPane" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
@@ -188,13 +188,13 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="mybasketPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="mybasketPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
-                  <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                  <SplitPane dividerPositions="0.5" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                            <children>
-                              <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" promptText="Search">
+                              <TextField fx:id="myBasketSearch" layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" promptText="Search">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
@@ -235,7 +235,76 @@
                               <Button layoutX="817.0" layoutY="64.0" mnemonicParsing="false" text="Add new recipe" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <Text fx:id="myBasketFoodName1" layoutX="134.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Name1" wrappingWidth="173.13671875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketFoodName2" layoutX="607.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Name2" wrappingWidth="173.13671875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketFoodName3" layoutX="134.0" layoutY="567.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Name3" wrappingWidth="173.13671875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketFoodName4" layoutX="621.0" layoutY="567.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Name4" wrappingWidth="173.13671875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="200.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="673.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="687.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="200.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketLike1" layoutX="144.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketLike2" layoutX="621.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketLike3" layoutX="150.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="myBasketLike4" layoutX="632.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Likes" wrappingWidth="41.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                              <Button layoutX="896.0" layoutY="28.0" mnemonicParsing="false" onAction="#myBasketUpButtonClick" text="Up" />
+                              <Button layoutX="889.0" layoutY="635.0" mnemonicParsing="false" onAction="#myBasketDownButtonClick" text="Down" />
+                              <Text fx:id="myBasketPageNumber" layoutX="425.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page Number" wrappingWidth="149.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children></AnchorPane>
                      </items>
                   </SplitPane>
                </items>
@@ -266,7 +335,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="chiefsPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="chiefsPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.11859688195991092, 0.2900890868596882, 0.4471046770601336, 0.6208240534521158, 0.826837416481069, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -550,7 +619,7 @@
             <FontAwesomeIconView fill="#9a3184" glyphName="ERASER" layoutX="24.0" layoutY="552.0" size="24" />
          </children>
       </Pane>
-      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
+      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
             <ImageView fitHeight="900.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
                <image>

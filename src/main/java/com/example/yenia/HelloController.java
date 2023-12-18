@@ -22,9 +22,11 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch;
     @FXML
     private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo;
+    @FXML
+    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote;
 
@@ -33,6 +35,7 @@ public class HelloController {
     private DataBase db=new DataBase();
     private int currentPage=2;
     private int chiefsSection=0;
+    private int myBasketSection=0;
     //Methods
 
     //Button Methods
@@ -52,6 +55,7 @@ public class HelloController {
     protected void mybasketButtonClick()
     {
         changePage(1);
+        updateMyBasketGUI();
     }
     @FXML
     protected void recipesButtonClick()
@@ -102,6 +106,7 @@ public class HelloController {
                 mainPane.setDisable(false);
                 updateProfilePageGUI();
                 updateChiefsPageGUI(db.getAllUsers());
+                updateMyBasketGUI();
             }
             else
             {
@@ -146,6 +151,7 @@ public class HelloController {
             mainPane.setDisable(false);
             updateProfilePageGUI();
             updateChiefsPageGUI(db.getAllUsers());
+            updateMyBasketGUI();
         }
     }
     @FXML
@@ -170,8 +176,8 @@ public class HelloController {
     @FXML
     protected void chiefsSearchButtonClick()
     {
-        updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
         chiefsSection=0;
+        updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
     }
     @FXML
     protected void chiefsUpButtonClick()
@@ -221,6 +227,21 @@ public class HelloController {
     {
         visitProfile(chiefs6.getText());
     }
+    @FXML
+    protected void myBasketUpButtonClick()
+    {
+        if(myBasketSection>0) myBasketSection--;
+        updateMyBasketGUI();
+    }
+    @FXML
+    protected void myBasketDownButtonClick()
+    {
+        if(db.getRecipeListOf(UserMemory.getName()).size()>chiefsSection*4)
+        {
+            myBasketSection++;
+        }
+        updateMyBasketGUI();
+    }
 
 
     //AL Methods
@@ -255,6 +276,23 @@ public class HelloController {
             }
         }
         return out;
+    }
+    public ArrayList<String> sortRecipes(ArrayList<String>recipes)
+    {
+        for(int i=0;i<recipes.size();i++)
+        {
+            String temp;
+            for (int a=i+1;a<recipes.size();a++)
+            {
+                if(db.getLikeCountOf(db.getRecipeIDOf(recipes.get(a)))>db.getLikeCountOf(db.getRecipeIDOf(recipes.get(i))))
+                {
+                    temp=recipes.get(i);
+                    recipes.set(i,recipes.get(a));
+                    recipes.set(a,temp);
+                }
+            }
+        }
+        return recipes;
     }
     public ArrayList<String> sortChiefs(ArrayList<String>chiefs)
     {
@@ -304,9 +342,9 @@ public class HelloController {
     {
         chiefsPageNum.setText("Page: "+(chiefsSection+1));
         ArrayList<String> sorted=sortChiefs(list);
-        chiefs1.setText(" ");chiefs2.setText(" ");chiefs3.setText(" ");chiefs4.setText(" ");chiefs5.setText(" ");chiefs6.setText(" ");
+        chiefs1.setText("");chiefs2.setText("");chiefs3.setText("");chiefs4.setText("");chiefs5.setText("");chiefs6.setText("");
         chiefs1.setDisable(true);chiefs2.setDisable(true);chiefs3.setDisable(true);chiefs4.setDisable(true);chiefs5.setDisable(true);chiefs6.setDisable(true);
-        rating1.setText(" ");rating2.setText(" ");rating3.setText(" ");rating4.setText(" ");rating5.setText(" ");rating6.setText(" ");
+        rating1.setText("");rating2.setText("");rating3.setText("");rating4.setText("");rating5.setText("");rating6.setText("");
         if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection*6));chiefs1.setDisable(false);
         if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection*6+1));chiefs2.setDisable(false);
         if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection*6+2));chiefs3.setDisable(false);
@@ -319,6 +357,38 @@ public class HelloController {
         if(sorted.size()>chiefsSection*6+3)rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+3))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+3)));
         if(sorted.size()>chiefsSection*6+4)rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+4))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+4)));
         if(sorted.size()>chiefsSection*6+5)rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+5))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+5)));
+    }
+    public void updateMyBasketGUI()
+    {
+        ArrayList<Integer> list=db.getRecipeListOf(UserMemory.getName());
+        myBasketPageNumber.setText("Page: "+ (myBasketSection+1));
+        myBasketFoodName1.setText(" ");myBasketFoodName2.setText(" ");myBasketFoodName3.setText(" ");myBasketFoodName4.setText(" ");
+        myBasketLike1.setText(" ");myBasketLike2.setText(" ");myBasketLike3.setText(" ");myBasketLike4.setText(" ");
+        if(!(list==null)) {
+            ArrayList<String> listOfNames = new ArrayList<>();
+            for (int i = 0; i < list.size(); i++) {
+                listOfNames.add(db.getRecipeNameOf(list.get(i)));
+            }
+            listOfNames = sortListSearch(listOfNames, myBasketSearch.getText());
+            listOfNames = sortRecipes(listOfNames);
+            if (listOfNames.size() > myBasketSection * 4) {
+                myBasketFoodName1.setText(listOfNames.get(myBasketSection * 4));
+                myBasketLike1.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4))) + " ");
+            }
+            if (listOfNames.size() > myBasketSection * 4 + 1) {
+                myBasketFoodName2.setText(listOfNames.get(myBasketSection * 4 + 1));
+                myBasketLike2.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 1))) + " ");
+            }
+            if (listOfNames.size() > myBasketSection * 4 + 2) {
+                myBasketFoodName3.setText(listOfNames.get(myBasketSection * 4 + 2));
+                myBasketLike3.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 2))) + " ");
+            }
+            if (listOfNames.size() > myBasketSection * 4 + 3) {
+                myBasketFoodName4.setText(listOfNames.get(myBasketSection * 4 + 3));
+                myBasketLike4.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 3))) + " ");
+            }
+        }
+
     }
 
 }

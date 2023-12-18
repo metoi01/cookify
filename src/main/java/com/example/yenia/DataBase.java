@@ -112,6 +112,11 @@ public class DataBase {
         return null;
     }
 
+    //TODO This method will get the ID of the recipe
+    public int getRecipeIDOf(String name){
+        return 0;
+    }
+
     //TODO This method will get the chef name
     public String getChefOf(int ID){
         return null;
