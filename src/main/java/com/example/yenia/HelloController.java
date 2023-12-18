@@ -14,15 +14,18 @@ public class HelloController {
 
     //Gui Variables
     @FXML
-    private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton;
+    private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton,personalInfoEdit,personalInfoDone;
     @FXML
     private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane;
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo;
     @FXML
     private Text loginError,registerError;
+    @FXML
+    private Label profilePageName,profilePageFollowers,profilePageVoteRate;
+
 
     //AL Variables
     private DataBase db=new DataBase();
@@ -94,6 +97,7 @@ public class HelloController {
                 loginPane.setDisable(true);
                 mainPane.setVisible(true);
                 mainPane.setDisable(false);
+                updatePersonalInfoGUI();
             }
             else
             {
@@ -136,8 +140,27 @@ public class HelloController {
             registerPane.setDisable(true);
             mainPane.setVisible(true);
             mainPane.setDisable(false);
-            usernameButton.setText(UserMemory.getName());
+            updatePersonalInfoGUI();
         }
+    }
+    @FXML
+    protected void personalInfoEditButtonClick()
+    {
+        personalInfo.setEditable(true);
+        personalInfoEdit.setVisible(false);
+        personalInfoEdit.setDisable(true);
+        personalInfoDone.setVisible(true);
+        personalInfoDone.setDisable(false);
+    }
+    @FXML
+    protected void personalInfoDoneButtonClick()
+    {
+        personalInfo.setEditable(false);
+        personalInfoDone.setVisible(false);
+        personalInfoDone.setDisable(true);
+        personalInfoEdit.setVisible(true);
+        personalInfoEdit.setDisable(false);
+        db.changePersonalInfoTo(UserMemory.getName(),personalInfo.getText());
     }
 
     //AL Methods
@@ -158,6 +181,14 @@ public class HelloController {
         if(currentPage==5)return settingsPane;
         if(currentPage==6)return logoutPane;
         return usernamePane;
+    }
+    public void updatePersonalInfoGUI()
+    {
+        usernameButton.setText(UserMemory.getName());
+        personalInfo.setText(db.getPersonalInfoOf(UserMemory.getName()));
+        profilePageName.setText(UserMemory.getName());
+        profilePageFollowers.setText(Integer.toString(db.getFollowerCountOf(UserMemory.getName())));
+        profilePageVoteRate.setText(db.getVoteRateOf(UserMemory.getName())+"/5");
     }
 
 }

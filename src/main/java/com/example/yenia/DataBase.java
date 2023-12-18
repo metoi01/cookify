@@ -65,7 +65,7 @@ public class DataBase {
     // (Likes, comments, votes...)
     //
 
-    //TODO This method will get the current voteRate.
+    //TODO This method will get the current voteRate out of five. For example if it is 4/5, method returns 4.
     public float getVoteRateOf(String username){
         return 0;
     }
@@ -77,7 +77,7 @@ public class DataBase {
 
     //TODO This method will get the personal info.
     public String getPersonalInfoOf(String username){
-        return null;
+        return "test";
     }
 
     //TODO This method will get the ID's of recipes.
