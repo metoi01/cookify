@@ -349,7 +349,7 @@
             <Text depthTest="ENABLE" layoutX="531.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
             <Text layoutX="585.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
             <Text depthTest="ENABLE" layoutX="534.0" layoutY="495.0" onMouseClicked="#createAccButtonClick" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account." underline="true" />
-            <Button layoutX="540.0" layoutY="523.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Log In">
+            <Button layoutX="545.0" layoutY="523.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Log In">
                <font>
                   <Font name="Apple SD Gothic Neo Bold" size="22.0" />
                </font>
@@ -359,7 +359,7 @@
                   <Image url="@../../../assets/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="506.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="109.0" fitWidth="149.0" layoutX="521.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../assets/login.png" />
                </image>
@@ -384,7 +384,7 @@
                   <Image url="@../../../assets/register.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="182.0" fitWidth="339.0" layoutX="41.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="182.0" fitWidth="339.0" layoutX="31.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../assets/logo.png" />
                </image>
