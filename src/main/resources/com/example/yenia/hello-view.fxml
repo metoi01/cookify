@@ -20,7 +20,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" layoutX="50.0">
+      <Pane fx:id="mainPane" layoutX="50.0" layoutY="-10.0" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" layoutX="-49.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="-50.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="210.0" />
@@ -38,9 +38,9 @@
             <Button layoutX="-48.0" layoutY="502.0" mnemonicParsing="false" onAction="#logoutButtonClick" prefHeight="83.0" prefWidth="206.0" text="Log out" />
             <SplitPane fx:id="usernamePane" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
-                  <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                  <SplitPane dividerPositions="0.17538975501113585, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="154.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -68,10 +68,10 @@
                                     <Image url="@../../../assets/star.png" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="82.0" layoutY="100.0" mnemonicParsing="false" text="Edit" />
+                              <Button layoutX="78.0" layoutY="100.0" mnemonicParsing="false" text="Edit" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -83,19 +83,20 @@
                                     <Font size="42.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="personalInfoEdit" layoutX="617.0" layoutY="52.0" mnemonicParsing="false" onAction="#personalInfoEditButtonClick" text="Edit" />
-                              <Button fx:id="personalInfoDone" disable="true" layoutX="618.0" layoutY="52.0" mnemonicParsing="false" onAction="#personalInfoDoneButtonClick" text="Done" visible="false" />
-                              <TextField fx:id="personalInfo" alignment="TOP_LEFT" editable="false" layoutX="52.0" layoutY="92.0" prefHeight="344.0" prefWidth="911.0" text="Fill Here" />
+                              <Button fx:id="personalInfoEdit" layoutX="600.0" layoutY="45.0" mnemonicParsing="false" onAction="#personalInfoEditButtonClick" prefHeight="26.0" prefWidth="69.0" text="Edit" />
+                              <Button fx:id="personalInfoDone" disable="true" layoutX="600.0" layoutY="45.0" mnemonicParsing="false" onAction="#personalInfoDoneButtonClick" prefHeight="26.0" prefWidth="69.0" text="Done" visible="false" />
+                              <TextField fx:id="personalInfo" alignment="TOP_LEFT" editable="false" layoutX="52.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="915.0" text="Fill Here" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="472.0" layoutY="60.0" mnemonicParsing="false" text="Recipes" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="144.0" stroke="BLACK" strokeType="INSIDE" width="998.0" />
+                              <Button layoutX="5.0" layoutY="4.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="988.0" text="Recipes" />
                            </children>
                         </AnchorPane>
                     </items>
@@ -106,7 +107,7 @@
                <items>
                   <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="998.0">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -137,7 +138,7 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="998.0">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -156,7 +157,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="998.0">
                            <children>
                               <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -250,35 +251,47 @@
             </SplitPane>
             <SplitPane fx:id="chiefsPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <SplitPane dividerPositions="0.14420935412026725, 0.3413140311804009, 0.5239420935412027, 0.7232739420935412" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                  <SplitPane dividerPositions="0.11859688195991092, 0.2900890868596882, 0.4471046770601336, 0.6208240534521158, 0.826837416481069, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="998.0">
                            <children>
-                              <TextField layoutX="280.0" layoutY="18.0" prefHeight="50.0" prefWidth="400.0" promptText="Search" />
+                              <TextField layoutX="280.0" layoutY="5.0" prefHeight="45.0" prefWidth="400.0" promptText="Search" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
                               <Label layoutX="68.0" layoutY="77.0" text="chefname" />
                               <Label layoutX="371.0" layoutY="87.0" text="about" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="606.0" prefWidth="998.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
                               <Label layoutX="98.0" layoutY="70.0" text="chefname" />
                               <Label layoutX="332.0" layoutY="62.0" text="about" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
                               <Label layoutX="66.0" layoutY="32.0" text="chefname" />
                               <Label layoutX="330.0" layoutY="89.0" text="about" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="145.0" prefWidth="998.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
                            <children>
                               <Label layoutX="74.0" layoutY="77.0" text="chefname" />
                               <Label layoutX="324.0" layoutY="98.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
+                           <children>
+                              <Label layoutX="74.0" layoutY="77.0" text="chefname" />
+                              <Label layoutX="324.0" layoutY="98.0" text="about" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
+                           <children>
+                              <Label layoutX="98.0" layoutY="70.0" text="chefname" />
+                              <Label layoutX="332.0" layoutY="62.0" text="about" />
                            </children>
                         </AnchorPane>
                      </items>
@@ -289,7 +302,7 @@
                <items>
                   <SplitPane dividerPositions="0.5" layoutY="-5.0" prefHeight="160.0" prefWidth="200.0">
                     <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="898.0" prefWidth="496.0">
                            <children>
                               <Label layoutX="218.0" layoutY="56.0" text="Ingredients" />
                               <Label layoutX="223.0" layoutY="155.0" text="Label" />
@@ -297,7 +310,7 @@
                               <Button layoutX="224.0" layoutY="310.0" mnemonicParsing="false" text="Add Ingredient" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="898.0" prefWidth="496.0">
                            <children>
                               <Label layoutX="222.0" layoutY="76.0" text="Recipes" />
                               <Label layoutX="212.0" layoutY="171.0" text="Add more ingredients." />
@@ -353,7 +366,7 @@
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <TextField layoutX="140.0" layoutY="24.0" prefHeight="50.0" prefWidth="623.0" promptText="Search">
                                  <font>
@@ -378,7 +391,7 @@
                               </ButtonBar>
                            </children>
                         </AnchorPane>
-                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false" />
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="998.0" SplitPane.resizableWithParent="false" />
                      </items>
                   </SplitPane>
                </items>
@@ -387,7 +400,7 @@
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <Label layoutX="42.0" layoutY="15.0" prefHeight="38.0" prefWidth="273.0" text="Change Username" underline="true">
                                  <font>
@@ -398,7 +411,7 @@
                               <Button layoutX="43.0" layoutY="113.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Submit" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
                               <Label layoutX="38.0" layoutY="31.0" text="Change Password" underline="true">
                                  <font>
