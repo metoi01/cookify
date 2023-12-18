@@ -20,7 +20,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" disable="true" layoutX="50.0" visible="false">
+      <Pane fx:id="mainPane" layoutX="50.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" layoutX="-49.0" stroke="BLACK" strokeType="INSIDE" width="206.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="-50.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="210.0" />
@@ -36,7 +36,7 @@
             <Button fx:id="myfridgeButton" layoutX="-48.0" layoutY="327.0" mnemonicParsing="false" onAction="#myfridgeButtonClick" prefHeight="83.0" prefWidth="206.0" text="My Fridge" />
             <Button layoutX="-48.0" layoutY="413.0" mnemonicParsing="false" onAction="#settingsButtonClick" prefHeight="83.0" prefWidth="206.0" text="Settings" />
             <Button layoutX="-48.0" layoutY="502.0" mnemonicParsing="false" onAction="#logoutButtonClick" prefHeight="83.0" prefWidth="206.0" text="Log out" />
-            <SplitPane fx:id="usernamePane" disable="true" layoutX="150.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="usernamePane" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
@@ -102,7 +102,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="usernamePane1" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="usernamePane1" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -170,7 +170,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="mybasketPane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="mybasketPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -222,7 +222,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -248,7 +248,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="chiefsPane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="chiefsPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.14420935412026725, 0.3413140311804009, 0.5239420935412027, 0.7232739420935412" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -285,9 +285,9 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="myfridgePane" disable="true" layoutX="160.0" layoutY="10.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="myfridgePane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0">
+                  <SplitPane dividerPositions="0.5" layoutY="-5.0" prefHeight="160.0" prefWidth="200.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
@@ -307,9 +307,9 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="recipesPane1" disable="true" layoutX="170.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="recipesPane1" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
-                  <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                  <SplitPane layoutX="-10.0" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
                         <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="713.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                            <children>
@@ -349,7 +349,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="recipesPane" disable="true" layoutX="170.0" layoutY="20.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="recipesPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -383,7 +383,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="settingsPane" disable="true" layoutX="180.0" layoutY="30.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="settingsPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -423,7 +423,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="logoutPane" disable="true" layoutX="190.0" layoutY="40.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="logoutPane" disable="true" layoutX="160.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -454,7 +454,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
+      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
             <ImageView fitHeight="1020.0" fitWidth="1624.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -463,9 +463,10 @@
             </ImageView>
             <TextField fx:id="loginUsername" layoutX="520.0" layoutY="369.0" promptText="Username" />
             <TextField fx:id="loginPassword" layoutX="520.0" layoutY="400.0" promptText="Password" />
-            <Text depthTest="ENABLE" layoutX="531.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
+            <Text depthTest="ENABLE" layoutX="530.0" layoutY="453.0" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot your password?" underline="true" />
             <Text layoutX="585.0" layoutY="474.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" />
             <Text depthTest="ENABLE" layoutX="534.0" layoutY="495.0" onMouseClicked="#createAccButtonClick" pickOnBounds="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new account." underline="true" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="48.0" layoutX="543.0" layoutY="521.0" stroke="BLACK" strokeType="INSIDE" width="93.0" />
             <Button layoutX="545.0" layoutY="523.0" mnemonicParsing="false" onAction="#loginButtonClick" text="Log In">
                <font>
                   <Font name="Apple SD Gothic Neo Bold" size="22.0" />
@@ -476,7 +477,7 @@
                   <Image url="@../../../assets/logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="109.0" fitWidth="149.0" layoutX="521.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="109.0" fitWidth="149.0" layoutX="527.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../assets/login.png" />
                </image>
