@@ -29,7 +29,10 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutY="325.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutY="412.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="86.0" layoutY="500.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-            <Button fx:id="usernameButton" layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username" />
+            <Button fx:id="usernameButton" layoutX="70.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#usernameButtonClick" prefHeight="30.0" prefWidth="100.0" text="Username">
+               <font>
+                  <Font name="Apple SD Gothic Neo Regular" size="13.0" />
+               </font></Button>
             <Button fx:id="mybasketButton" layoutY="74.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="75.0" prefWidth="199.0" text="My Basket" />
             <Button fx:id="chiefsButton" layoutY="155.0" mnemonicParsing="false" onAction="#chiefsButtonClick" prefHeight="83.0" prefWidth="199.0" text="Chiefs" />
             <Button layoutY="241.0" mnemonicParsing="false" onAction="#recipesButtonClick" prefHeight="83.0" prefWidth="199.0" text="Recipes" />
