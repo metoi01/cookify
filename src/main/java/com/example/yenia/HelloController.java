@@ -236,10 +236,16 @@ public class HelloController {
     @FXML
     protected void myBasketDownButtonClick()
     {
-        if(db.getRecipeListOf(UserMemory.getName()).size()>chiefsSection*4)
-        {
-            myBasketSection++;
+        if(db.getRecipeListOf(UserMemory.getName())!=null) {
+            if (db.getRecipeListOf(UserMemory.getName()).size() > chiefsSection * 4) {
+                myBasketSection++;
+            }
         }
+        updateMyBasketGUI();
+    }
+    @FXML
+    protected void mybasketSearchButtonClick()
+    {
         updateMyBasketGUI();
     }
 
@@ -253,38 +259,56 @@ public class HelloController {
         otherProfileVote.setText(db.getVoteRateOf(username)+"/5");
         otherProfilePersonalInfo.setText(db.getPersonalInfoOf(username));
     }
-    public ArrayList<String> sortListSearch(ArrayList<String>list,String searchText)
+    public ArrayList<Integer> sortRecipeSearch(ArrayList<Integer>list,String searchText)
     {
-        ArrayList<String>out=new ArrayList<>();
-        for(int i=0;i<list.size();i++)
-        {
-            boolean isValid=true;
-            for(int a=0;a<searchText.length()&& searchText.length()<=list.get(i).length();a++)
-            {
-               if(!(searchText.charAt(a)==list.get(i).charAt(a)))
-               {
-                   isValid=false;
-               }
-            }
-            if(!(searchText.length()<=list.get(i).length()))
-            {
-                isValid=false;
-            }
-            if(isValid)
-            {
-                out.add(list.get(i));
+        ArrayList<Integer>out=new ArrayList<>();
+        if(list!=null) {
+            for (int i = 0; i < list.size(); i++) {
+                boolean isValid = true;
+                for (int a = 0; a < searchText.length() && searchText.length() <= Integer.toString(list.get(i)).length(); a++) {
+                    if (!(searchText.charAt(a) == db.getNameOf(list.get(i)).charAt(a))) {
+                        isValid = false;
+                    }
+                }
+                if (!(searchText.length() <= db.getNameOf(list.get(i)).length())) {
+                    isValid = false;
+                }
+                if (isValid) {
+                    out.add(list.get(i));
+                }
             }
         }
         return out;
     }
-    public ArrayList<String> sortRecipes(ArrayList<String>recipes)
+    public ArrayList<String> sortListSearch(ArrayList<String>list,String searchText)
+    {
+        ArrayList<String>out=new ArrayList<>();
+        if(list!=null) {
+            for (int i = 0; i < list.size(); i++) {
+                boolean isValid = true;
+                for (int a = 0; a < searchText.length() && searchText.length() <= list.get(i).length(); a++) {
+                    if (!(searchText.charAt(a) == list.get(i).charAt(a))) {
+                        isValid = false;
+                    }
+                }
+                if (!(searchText.length() <= list.get(i).length())) {
+                    isValid = false;
+                }
+                if (isValid) {
+                    out.add(list.get(i));
+                }
+            }
+        }
+        return out;
+    }
+    public ArrayList<Integer> sortRecipes(ArrayList<Integer>recipes)
     {
         for(int i=0;i<recipes.size();i++)
         {
-            String temp;
+            int temp;
             for (int a=i+1;a<recipes.size();a++)
             {
-                if(db.getLikeCountOf(db.getRecipeIDOf(recipes.get(a)))>db.getLikeCountOf(db.getRecipeIDOf(recipes.get(i))))
+                if(db.getLikeCountOf(recipes.get(i))<db.getLikeCountOf(recipes.get(a)))
                 {
                     temp=recipes.get(i);
                     recipes.set(i,recipes.get(a));
@@ -345,47 +369,66 @@ public class HelloController {
         chiefs1.setText("");chiefs2.setText("");chiefs3.setText("");chiefs4.setText("");chiefs5.setText("");chiefs6.setText("");
         chiefs1.setDisable(true);chiefs2.setDisable(true);chiefs3.setDisable(true);chiefs4.setDisable(true);chiefs5.setDisable(true);chiefs6.setDisable(true);
         rating1.setText("");rating2.setText("");rating3.setText("");rating4.setText("");rating5.setText("");rating6.setText("");
-        if(sorted.size()>chiefsSection*6) chiefs1.setText(sorted.get(chiefsSection*6));chiefs1.setDisable(false);
-        if(sorted.size()>chiefsSection*6+1)chiefs2.setText(sorted.get(chiefsSection*6+1));chiefs2.setDisable(false);
-        if(sorted.size()>chiefsSection*6+2)chiefs3.setText(sorted.get(chiefsSection*6+2));chiefs3.setDisable(false);
-        if(sorted.size()>chiefsSection*6+3)chiefs4.setText(sorted.get(chiefsSection*6+3));chiefs4.setDisable(false);
-        if(sorted.size()>chiefsSection*6+4)chiefs5.setText(sorted.get(chiefsSection*6+4));chiefs5.setDisable(false);
-        if(sorted.size()>chiefsSection*6+5)chiefs6.setText(sorted.get(chiefsSection*6+5));chiefs6.setDisable(false);
-        if(sorted.size()>chiefsSection*6) rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6)));
-        if(sorted.size()>chiefsSection*6+1)rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+1))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+1)));
-        if(sorted.size()>chiefsSection*6+2)rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+2))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+2)));
-        if(sorted.size()>chiefsSection*6+3)rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+3))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+3)));
-        if(sorted.size()>chiefsSection*6+4)rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+4))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+4)));
-        if(sorted.size()>chiefsSection*6+5)rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+5))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+5)));
+        if(sorted.size()>chiefsSection*6) {
+            chiefs1.setText(sorted.get(chiefsSection * 6));
+            chiefs1.setDisable(false);
+            rating1.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6)));
+        }
+        if(sorted.size()>chiefsSection*6+1) {
+            chiefs2.setText(sorted.get(chiefsSection*6+1));
+            chiefs2.setDisable(false);
+            rating2.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+1))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+1)));
+        }
+        if(sorted.size()>chiefsSection*6+2) {
+            chiefs3.setText(sorted.get(chiefsSection*6+2));
+            chiefs3.setDisable(false);
+            rating3.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+2))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+2)));
+        }
+        if(sorted.size()>chiefsSection*6+3) {
+            chiefs4.setText(sorted.get(chiefsSection*6+3));
+            chiefs4.setDisable(false);
+            rating4.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+3))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+3)));
+        }
+        if(sorted.size()>chiefsSection*6+4){
+            chiefs5.setText(sorted.get(chiefsSection*6+4));
+            chiefs5.setDisable(false);
+            rating5.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+4))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+4)));
+        }
+        if(sorted.size()>chiefsSection*6+5){
+            chiefs6.setText(sorted.get(chiefsSection*6+5));
+            chiefs6.setDisable(false);
+            rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+5))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+5)));
+        }
     }
     public void updateMyBasketGUI()
     {
         ArrayList<Integer> list=db.getRecipeListOf(UserMemory.getName());
+        list=sortRecipeSearch(list,myBasketSearch.getText());
+        list=sortRecipes(list);
         myBasketPageNumber.setText("Page: "+ (myBasketSection+1));
-        myBasketFoodName1.setText(" ");myBasketFoodName2.setText(" ");myBasketFoodName3.setText(" ");myBasketFoodName4.setText(" ");
+        myBasketFoodName1.setText("No Recipes Found");myBasketFoodName2.setText(" ");myBasketFoodName3.setText(" ");myBasketFoodName4.setText(" ");
         myBasketLike1.setText(" ");myBasketLike2.setText(" ");myBasketLike3.setText(" ");myBasketLike4.setText(" ");
-        if(!(list==null)) {
-            ArrayList<String> listOfNames = new ArrayList<>();
-            for (int i = 0; i < list.size(); i++) {
-                listOfNames.add(db.getRecipeNameOf(list.get(i)));
+        if(!(list==null))
+        {
+            if(list.size()>myBasketSection*4)
+            {
+                myBasketFoodName1.setText(db.getNameOf(list.get(myBasketSection*4)));
+                myBasketLike1.setText(db.getLikeCountOf(list.get(myBasketSection*4))+" Likes");
             }
-            listOfNames = sortListSearch(listOfNames, myBasketSearch.getText());
-            listOfNames = sortRecipes(listOfNames);
-            if (listOfNames.size() > myBasketSection * 4) {
-                myBasketFoodName1.setText(listOfNames.get(myBasketSection * 4));
-                myBasketLike1.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4))) + " ");
+            if(list.size()>myBasketSection*4+1)
+            {
+                myBasketFoodName2.setText(db.getNameOf(list.get(myBasketSection*4+1)));
+                myBasketLike2.setText(db.getLikeCountOf(list.get(myBasketSection*4+1))+" Likes");
             }
-            if (listOfNames.size() > myBasketSection * 4 + 1) {
-                myBasketFoodName2.setText(listOfNames.get(myBasketSection * 4 + 1));
-                myBasketLike2.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 1))) + " ");
+            if(list.size()>myBasketSection*4+2)
+            {
+                myBasketFoodName3.setText(db.getNameOf(list.get(myBasketSection*4+2)));
+                myBasketLike3.setText(db.getLikeCountOf(list.get(myBasketSection*4+2))+" Likes");
             }
-            if (listOfNames.size() > myBasketSection * 4 + 2) {
-                myBasketFoodName3.setText(listOfNames.get(myBasketSection * 4 + 2));
-                myBasketLike3.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 2))) + " ");
-            }
-            if (listOfNames.size() > myBasketSection * 4 + 3) {
-                myBasketFoodName4.setText(listOfNames.get(myBasketSection * 4 + 3));
-                myBasketLike4.setText(db.getLikeCountOf(db.getRecipeIDOf(listOfNames.get(myBasketSection * 4 + 3))) + " ");
+            if(list.size()>myBasketSection*4+3)
+            {
+                myBasketFoodName4.setText(db.getNameOf(list.get(myBasketSection*4+3)));
+                myBasketLike4.setText(db.getLikeCountOf(list.get(myBasketSection*4+3))+" Likes");
             }
         }
 

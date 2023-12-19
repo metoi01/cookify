@@ -107,20 +107,13 @@ public class DataBase {
         return null;
     }
 
-    //TODO This method will get the name of the recipe
-    public String getRecipeNameOf(int ID){
-        return null;
-    }
-
-    //TODO This method will get the ID of the recipe
-    public int getRecipeIDOf(String name){
-        return 0;
-    }
-
     //TODO This method will get the chef name
     public String getChefOf(int ID){
         return null;
     }
+
+    //TODO This method will get the recipe name
+    public String getNameOf(int ID) { return null;}
 
     //TODO This method will get the rate of votes
     public float getVoteRateOf(int ID){
