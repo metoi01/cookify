@@ -248,6 +248,19 @@ public class HelloController {
     {
         updateMyBasketGUI();
     }
+    @FXML
+    protected void noLogoutButtonClick()
+    {
+        changePage(3);
+    }
+    @FXML
+    protected void yesLogoutButtonClick()
+    {
+        mainPane.setDisable(true);
+        mainPane.setVisible(false);
+        loginPane.setVisible(true);
+        loginPane.setDisable(false);
+    }
 
 
     //AL Methods
