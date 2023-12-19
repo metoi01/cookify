@@ -320,7 +320,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="chiefsPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="chiefsPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.11859688195991092, 0.2900890868596882, 0.4471046770601336, 0.6208240534521158, 0.826837416481069, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -337,6 +337,8 @@
                                     <Font name="Bell MT" size="25.0" />
                                  </font>
                               </Text>
+                              <Button layoutX="894.0" layoutY="14.0" mnemonicParsing="false" onAction="#chiefsDownClick" text="Next" />
+                              <Button layoutX="823.0" layoutY="13.0" mnemonicParsing="false" onAction="#chiefsUpButtonClick" text="Previous" />
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
@@ -351,7 +353,6 @@
                                     <Font name="Bell MT" size="30.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="932.0" layoutY="14.0" mnemonicParsing="false" onAction="#chiefsUpButtonClick" text="Up" />
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="998.0">
@@ -422,7 +423,6 @@
                                     <Font name="Bell MT" size="30.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="932.0" layoutY="95.0" mnemonicParsing="false" onAction="#chiefsDownClick" text="Down" />
                            </children>
                         </AnchorPane>
                      </items>
@@ -538,8 +538,10 @@
                                     <Font name="System Bold Italic" size="31.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="47.0" layoutY="71.0" prefHeight="26.0" prefWidth="210.0" promptText="New Username" />
-                              <Button layoutX="43.0" layoutY="113.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="81.0" text="Submit" />
+                              <TextField fx:id="settingsChangeUsername" layoutX="47.0" layoutY="71.0" prefHeight="26.0" prefWidth="210.0" promptText="New Username" />
+                              <Button layoutX="46.0" layoutY="137.0" mnemonicParsing="false" onAction="#changeUsernameButtonClick" prefHeight="26.0" prefWidth="81.0" text="Submit" />
+                              <Text fx:id="settingsUsernameError" fill="RED" layoutX="288.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="288.0312178169878" />
+                              <TextField fx:id="settingsChangeUsername2" layoutX="46.0" layoutY="105.0" prefHeight="26.0" prefWidth="214.0" promptText="Enter Your Password" />
                            </children>
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
@@ -549,25 +551,26 @@
                                     <Font size="31.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="32.0" layoutY="89.0" prefHeight="26.0" prefWidth="222.0" promptText="Old Password" />
-                              <TextField layoutX="32.0" layoutY="135.0" prefHeight="26.0" prefWidth="222.0" promptText="New Password" />
-                              <TextField layoutX="33.0" layoutY="175.0" prefHeight="26.0" prefWidth="222.0" promptText="Re-enter New Password" />
-                              <Button layoutX="34.0" layoutY="215.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
+                              <TextField fx:id="settingsChangePassword1" layoutX="32.0" layoutY="89.0" prefHeight="26.0" prefWidth="222.0" promptText="Old Password" />
+                              <TextField fx:id="settingsChangePassword2" layoutX="32.0" layoutY="135.0" prefHeight="26.0" prefWidth="222.0" promptText="New Password" />
+                              <TextField fx:id="settingsChangePassword3" layoutX="33.0" layoutY="175.0" prefHeight="26.0" prefWidth="222.0" promptText="Re-enter New Password" />
+                              <Button layoutX="34.0" layoutY="215.0" mnemonicParsing="false" onAction="#changePasswordButtonClick" prefHeight="26.0" prefWidth="111.0" text="Submit" />
                               <Label layoutX="39.0" layoutY="278.0" text="Delete my Account" underline="true">
                                  <font>
                                     <Font size="31.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="33.0" layoutY="342.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
-                              <TextField layoutX="35.0" layoutY="386.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
-                              <Button layoutX="36.0" layoutY="433.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="111.0" text="Submit" />
+                              <TextField fx:id="settingsDeleteAccount" layoutX="33.0" layoutY="342.0" prefHeight="26.0" prefWidth="222.0" promptText="Enter Your Password" />
+                              <Button layoutX="37.0" layoutY="382.0" mnemonicParsing="false" onAction="#deleteAccountButtonClick" prefHeight="26.0" prefWidth="111.0" text="Submit" />
+                              <Text fx:id="settingsPasswordError" fill="RED" layoutX="288.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="288.0312178169878" />
+                              <Text fx:id="settingsDeleteError" fill="RED" layoutX="287.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="288.0312178169878" />
                            </children>
                         </AnchorPane>
                      </items>
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="logoutPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="logoutPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>

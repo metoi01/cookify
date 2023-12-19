@@ -35,6 +35,9 @@ public class DataBase {
     //TODO This method will change the password of the given user.
     public void changePasswordTo(String username, String newPassword){
     }
+    //TODO This method will change the username of the given user.
+    public void changeUsernameTo(String username, String newUsername) {
+    }
 
     //TODO This method will change the personal info of the given user.
     public void changePersonalInfoTo(String username, String newPersonalInfo){
@@ -42,6 +45,10 @@ public class DataBase {
 
     //TODO This method will change the profile photo of the given user.
     public void changeProfilePhotoTo(String username, BufferedImage image){
+    }
+
+    //TODO This method will delete user.
+    public void deleteUser(String username) {
     }
 
     //TODO This method will add a new recipe to the given user.

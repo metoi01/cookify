@@ -22,11 +22,11 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2;
     @FXML
     private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo;
     @FXML
-    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber;
+    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote;
 
@@ -256,10 +256,77 @@ public class HelloController {
     @FXML
     protected void yesLogoutButtonClick()
     {
+        changePage(0);
         mainPane.setDisable(true);
         mainPane.setVisible(false);
         loginPane.setVisible(true);
         loginPane.setDisable(false);
+
+    }
+    @FXML
+    protected void changeUsernameButtonClick()
+    {
+        settingsUsernameError.setText(" ");
+        if(settingsChangeUsername.getText().length()<3||settingsChangeUsername.getText().length()>15)
+        {
+            settingsUsernameError.setText("New username must be between 3-15 characters.");
+        }
+        else if(!(settingsChangeUsername2.getText().equals(UserMemory.getPassword())))
+        {
+            settingsUsernameError.setText("Password is incorrect.");
+        }
+        else
+        {
+            db.changeUsernameTo(UserMemory.getName(),settingsChangeUsername.getText());
+            UserMemory.storeUser(settingsChangeUsername.getText(),UserMemory.getPassword());
+            updateProfilePageGUI();
+            updateMyBasketGUI();
+            updateChiefsPageGUI(db.getAllUsers());
+            settingsUsernameError.setText("Username has successfully been changed.");
+        }
+    }
+    @FXML
+    protected void changePasswordButtonClick()
+    {
+        settingsPasswordError.setText(" ");
+        if(!(settingsChangePassword1.getText().equals(UserMemory.getPassword())))
+        {
+            settingsPasswordError.setText("Password is incorrect.");
+        }
+        else if(settingsChangePassword2.getText().length()<3||settingsChangePassword2.getText().length()>15)
+        {
+            settingsPasswordError.setText("New password must be between 3-15 characters.");
+        }
+        else if(!(settingsChangePassword2.getText().equals(settingsChangePassword3.getText())))
+        {
+            settingsPasswordError.setText("Passwords do not match.");
+        }
+        else
+        {
+            db.changePasswordTo(UserMemory.getName(),settingsChangePassword2.getText());
+            UserMemory.storeUser(UserMemory.getName(),settingsChangePassword2.getText());
+            settingsPasswordError.setText("Password has successfully been changed.");
+        }
+    }
+    @FXML
+    protected void deleteAccountButtonClick()
+    {
+        settingsDeleteError.setText(" ");
+        if(settingsDeleteAccount.getText().equals(UserMemory.getPassword()))
+        {
+            db.deleteUser(UserMemory.getName());
+            changePage(0);
+            mainPane.setDisable(true);
+            mainPane.setVisible(false);
+            loginPane.setVisible(true);
+            loginPane.setDisable(false);
+            settingsUsernameError.setText(" ");
+            settingsPasswordError.setText(" ");
+        }
+        else
+        {
+            settingsDeleteError.setText("Password is incorrect.");
+        }
     }
 
 
