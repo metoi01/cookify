@@ -74,7 +74,8 @@ public class HelloController {
         changePage(4);
     }
     @FXML
-    protected void chiefsButtonClick() {changePage(2);}
+    protected void chiefsButtonClick() {
+        changePage(2);}
     @FXML
     protected void mybasketButtonClick()
     {
@@ -84,6 +85,7 @@ public class HelloController {
     @FXML
     protected void recipesButtonClick()
     {
+        fridge=null;
         currentRecipeList=db.getAllRecipes();
         updateRecipesGUI();
         changePage(3);
@@ -580,6 +582,11 @@ public class HelloController {
         if(!(foodPageFoodID==null))
             db.voteTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()),Integer.parseInt(foodPageVoteNumber.getText()));
     }
+    @FXML
+    protected void editProfilePhotoButtonClick() throws IOException {
+        FileChooser fileChooser=new FileChooser();
+        db.changeProfilePhotoTo(UserMemory.getName(),ImageIO.read(fileChooser.showOpenDialog(null)));
+    }
 
     //AL Methods
     public void visitProfile(String username)
@@ -756,6 +763,28 @@ public class HelloController {
             chiefs6.setDisable(false);
             rating6.setText("Rating: "+db.getVoteRateOf(sorted.get(chiefsSection*6+5))+"/5 Followers: "+db.getFollowerCountOf(sorted.get(chiefsSection*6+5)));
         }
+    }
+    public ArrayList<Integer> recipeSuggestion()
+    {
+        ArrayList<Integer> out=new ArrayList<>();
+        for(int i=0;i<db.getAllRecipes().size();i++)
+        {
+            int count=0;
+            ArrayList<int[]> a= db.getIngridientListOf(db.getAllRecipes().get(i));
+            for(int k=0;k<db.getAllRecipes().size();k++)
+            {
+                if (a.get(i)==fridge.get(k))
+                {
+                    count++;
+                }
+            }
+            if(count>=2)
+            {
+                out.add(db.getAllRecipes().get(i));
+            }
+        }
+
+        return out;
     }
     public void updateMyBasketGUI()
     {

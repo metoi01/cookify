@@ -87,7 +87,7 @@
                                     <Image url="@../../../assets/avatar.jpeg" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="78.0" layoutY="100.0" mnemonicParsing="false" text="Edit" />
+                              <Button fx:id="editProfilePhotoButtonClick" layoutX="78.0" layoutY="100.0" mnemonicParsing="false" text="Edit" />
                               <FontAwesomeIconView fill="#ffa100" glyphName="STAR" layoutX="465.0" layoutY="68.0" size="20" />
                            </children>
                         </AnchorPane>
