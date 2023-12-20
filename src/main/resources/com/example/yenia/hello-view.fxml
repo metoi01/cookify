@@ -884,6 +884,7 @@
             <TextField fx:id="registerUsername" layoutX="524.0" layoutY="345.0" promptText="Username" />
             <TextField fx:id="registerPassword1" layoutX="524.0" layoutY="381.0" promptText="Password" />
             <TextField fx:id="registerPassword2" layoutX="524.0" layoutY="412.0" promptText="re-enter your password." />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="48.0" layoutX="538.0" layoutY="457.0" stroke="BLACK" strokeType="INSIDE" width="114.0" />
             <Button layoutX="540.0" layoutY="458.0" mnemonicParsing="false" onAction="#registerButtonClick" text="Register">
                <font>
                   <Font name="Apple SD Gothic Neo Bold" size="22.0" />
