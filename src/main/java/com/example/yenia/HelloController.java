@@ -9,7 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
+import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 
@@ -20,19 +25,20 @@ public class HelloController {
     @FXML
     private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton,personalInfoEdit,personalInfoDone;
     @FXML
-    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane,otherProfilePane,myFridgeAddIngredientPane;
+    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane,otherProfilePane,myFridgeAddIngredientPane,addRecipePane,addIngredientPane;
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch,addIngredientSearch;
     @FXML
-    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber;
+    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber,addRecipeIngredients1,addRecipeIngredients2,addRecipeIngredients3,addRecipeIngredients4;
     @FXML
-    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4;
+    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4,addIngredient1,addIngredient2,addIngredient3,addIngredient4;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote,myfridge1,myfridge2,myfridge3,myfridge4,myfridgePage;
     @FXML
     private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4;
+    private File image;
 
 
     //AL Variables
@@ -42,8 +48,10 @@ public class HelloController {
     private int myBasketSection=0;
     private int recipesSection=0;
     private int myfridgeSection=0;
+    private int addRecipeSection=0;
     private ArrayList<Integer>currentRecipeList=db.getAllRecipes();
     private ArrayList<Integer>fridge;
+    private ArrayList<Integer>addRecipeIngredients;
     //Methods
 
     //Button Methods
@@ -385,9 +393,42 @@ public class HelloController {
         updateMyFridgeGUI();
     }
     @FXML
-    protected void myfridgeAddIngredientButtonClick()
+    protected void myBasketAddRecipeButtonClick()
     {
-
+        changePage(8);
+    }
+    @FXML
+    protected void addImageButtonClick()
+    {
+        FileChooser fileChooser=new FileChooser();
+        image=fileChooser.showOpenDialog(null);
+    }
+    @FXML
+    protected void addRecipeUpButtonClick()
+    {
+        if(addRecipeSection>0) addRecipeSection--;
+        updateAddRecipeGUI();
+    }
+    @FXML
+    protected void addRecipeDownButtonClick()
+    {
+        if(addRecipeIngredients!=null) {
+            if (addRecipeIngredients.size() > addRecipeSection * 4) {
+                addRecipeSection++;
+            }
+        }
+        updateAddRecipeGUI();
+    }
+    @FXML
+    protected void addIngredientSearchButtonClick()
+    {
+        updateAddIngredientGUI();
+    }
+    @FXML
+    protected void addIngredientButtonClick()
+    {
+        updateAddIngredientGUI();
+        changePage(9);
     }
 
 
@@ -399,6 +440,27 @@ public class HelloController {
         otherProfileFollowers.setText(db.getFollowerCountOf(username)+" ");
         otherProfileVote.setText(db.getVoteRateOf(username)+"/5");
         otherProfilePersonalInfo.setText(db.getPersonalInfoOf(username));
+    }
+    public ArrayList<Integer> sortIngredientSearch(ArrayList<Integer>list,String searchText)
+    {
+        ArrayList<Integer>out=new ArrayList<>();
+        if(list!=null) {
+            for (int i = 0; i < list.size(); i++) {
+                boolean isValid = true;
+                for (int a = 0; a < searchText.length() && searchText.length() <= Integer.toString(list.get(i)).length(); a++) {
+                    if (!(searchText.charAt(a) == db.getIngredientName(list.get(i)).charAt(a))) {
+                        isValid = false;
+                    }
+                }
+                if (!(searchText.length() <= db.getIngredientName(list.get(i)).length())) {
+                    isValid = false;
+                }
+                if (isValid) {
+                    out.add(list.get(i));
+                }
+            }
+        }
+        return out;
     }
     public ArrayList<Integer> sortRecipeSearch(ArrayList<Integer>list,String searchText)
     {
@@ -493,6 +555,8 @@ public class HelloController {
         if(currentPage==5)return settingsPane;
         if(currentPage==6)return logoutPane;
         if(currentPage==7)return otherProfilePane;
+        if(currentPage==8)return addRecipePane;
+        if(currentPage==9)return addIngredientPane;
         return usernamePane;
     }
     public void updateProfilePageGUI()
@@ -549,7 +613,6 @@ public class HelloController {
         myBasketPageNumber.setText("Page: "+ (myBasketSection+1));
         myBasketFoodName1.setText("No Recipes Found");myBasketFoodName2.setText(" ");myBasketFoodName3.setText(" ");myBasketFoodName4.setText(" ");
         myBasketLike1.setText(" ");myBasketLike2.setText(" ");myBasketLike3.setText(" ");myBasketLike4.setText(" ");
-        myBasketImage1.setImage(null);myBasketImage2.setImage(null);myBasketImage3.setImage(null);myBasketImage4.setImage(null);
         if(!(list==null))
         {
             if(list.size()>myBasketSection*4)
@@ -638,6 +701,57 @@ public class HelloController {
             if(list.size()>myfridgeSection*4+3)
             {
                 myfridge4.setText(db.getIngredientName(list.get(myfridgeSection*4+3)));
+            }
+        }
+
+    }
+    public void updateAddRecipeGUI()
+    {
+        ArrayList<Integer>list=addRecipeIngredients;
+        addRecipeIngredients1.setText("No Ingredients Added");addRecipeIngredients2.setText(" ");addRecipeIngredients3.setText(" ");addRecipeIngredients4.setText(" ");
+        if(!(list==null))
+        {
+            if(list.size()>addRecipeSection*4)
+            {
+                addRecipeIngredients1.setText(db.getIngredientName(list.get(addRecipeSection*4)));
+            }
+            if(list.size()>addRecipeSection*4+1)
+            {
+                addRecipeIngredients2.setText(db.getIngredientName(list.get(addRecipeSection*4+1)));
+            }
+            if(list.size()>addRecipeSection*4+2)
+            {
+                addRecipeIngredients3.setText(db.getIngredientName(list.get(addRecipeSection*4+2)));
+            }
+            if(list.size()>addRecipeSection*4+3)
+            {
+                addRecipeIngredients4.setText(db.getIngredientName(list.get(addRecipeSection*4+3)));
+            }
+        }
+
+    }
+    public void updateAddIngredientGUI()
+    {
+        ArrayList<Integer>list=db.getAllIngredients();
+        list=sortIngredientSearch(list,addIngredientSearch.getText());
+        addIngredient1.setText("No Ingredients");addIngredient2.setText(" ");addIngredient3.setText(" ");addIngredient4.setText(" ");
+        if(!(list==null))
+        {
+            if(list.size()>0)
+            {
+                addIngredient1.setText(db.getIngredientName(list.get(0)));
+            }
+            if(list.size()>1)
+            {
+                addIngredient2.setText(db.getIngredientName(list.get(1)));
+            }
+            if(list.size()>2)
+            {
+                addIngredient3.setText(db.getIngredientName(list.get(2)));
+            }
+            if(list.size()>3)
+            {
+                addIngredient4.setText(db.getIngredientName(list.get(3)));
             }
         }
 

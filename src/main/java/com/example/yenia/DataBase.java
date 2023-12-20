@@ -185,4 +185,5 @@ public class DataBase {
         return 0;
     }
     public String getIngredientName(int id){return null;}
+    public ArrayList<Integer> getAllIngredients(){return null;}
 }
