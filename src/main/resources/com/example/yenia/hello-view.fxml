@@ -292,6 +292,34 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="287.0" layoutY="238.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="312.0" layoutY="238.0" />
+                              <Text fill="#0084ff" layoutX="337.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="768.0" layoutY="236.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="793.0" layoutY="236.0" />
+                              <Text fill="#0084ff" layoutX="818.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="294.0" layoutY="523.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="319.0" layoutY="523.0" />
+                              <Text fill="#0084ff" layoutX="344.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="776.0" layoutY="523.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="801.0" layoutY="523.0" />
+                              <Text fill="#0084ff" layoutX="826.0" layoutY="523.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
                            </children></AnchorPane>
                      </items>
                   </SplitPane>
@@ -532,6 +560,13 @@
                         </AnchorPane>
                         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="998.0" SplitPane.resizableWithParent="false">
                            <children>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="270.0" layoutY="283.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="296.0" layoutY="283.0" />
+                              <Text fill="#0084ff" layoutX="322.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
                               <Text fx:id="recipesFoodName1" layoutX="151.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Food Name1" wrappingWidth="173.13671875">
                                  <font>
                                     <Font size="20.0" />
@@ -577,6 +612,27 @@
                               <Text fx:id="recipesPageNumber" layoutX="416.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page Number" wrappingWidth="149.0">
                                  <font>
                                     <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="765.0" layoutY="286.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="791.0" layoutY="286.0" />
+                              <Text fill="#0084ff" layoutX="817.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="289.0" layoutY="522.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="315.0" layoutY="522.0" />
+                              <Text fill="#0084ff" layoutX="341.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                              </Text>
+                              <FontAwesomeIconView fill="#d30d0d" glyphName="HEART" layoutX="779.0" layoutY="521.0" />
+                              <FontAwesomeIconView fill="#11cd11" glyphName="COMMENT" layoutX="805.0" layoutY="521.0" />
+                              <Text fill="#0084ff" layoutX="831.0" layoutY="521.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
                                  </font>
                               </Text>
                            </children></AnchorPane>
@@ -640,6 +696,134 @@
                               </Label>
                               <Button layoutX="201.0" layoutY="170.0" mnemonicParsing="false" onAction="#noLogoutButtonClick" prefHeight="67.0" prefWidth="222.0" text="No, take me back to homepage" />
                               <Button layoutX="544.0" layoutY="167.0" mnemonicParsing="false" onAction="#yesLogoutButtonClick" prefHeight="73.0" prefWidth="228.0" text="Yes" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </items>
+            </SplitPane>
+            <SplitPane fx:id="logoutPane1" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+               <items>
+                  <SplitPane dividerPositions="0.2594444444444444, 0.455, 0.695" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
+                     <items>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="998.0">
+                           <children>
+                              <ImageView fitHeight="900.0" fitWidth="998.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../assets/white.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="210.0" fitWidth="213.0" layoutX="364.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/avatar.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="#ffbf00" layoutX="669.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                              <Text fill="#ffbf00" layoutX="690.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/5 " />
+                              <Text fill="#ffbf00" layoutX="710.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                              <Text fill="#ffbf00" layoutX="740.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="votes." />
+                              <FontAwesomeIconView fill="#ffbf00" glyphName="STAR" layoutX="635.0" layoutY="78.0" size="24" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="169.0" prefWidth="998.0">
+                           <children>
+                              <ImageView fitHeight="572.0" fitWidth="1001.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../assets/white.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="389.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodName" underline="true">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="400.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="By">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="430.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="998.0">
+                           <children>
+                              <SplitPane dividerPositions="0.4402610441767068" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="998.0">
+                                <items>
+                                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="435.0">
+                                       <children>
+                                          <ImageView fitHeight="345.0" fitWidth="482.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../assets/white.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Text layoutX="24.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingredients">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="29.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="554.0">
+                                       <children>
+                                          <ImageView fitHeight="456.0" fitWidth="605.0" layoutX="-48.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../../assets/white.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Text layoutX="24.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipe">
+                                             <font>
+                                                <Font size="24.0" />
+                                             </font>
+                                          </Text>
+                                          <Text layoutX="29.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Text>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="998.0">
+                           <children>
+                              <ImageView fitHeight="345.0" fitWidth="1122.0" layoutX="-28.0" layoutY="-43.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../assets/white.jpg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="61.0" fitWidth="60.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/avatar.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="61.0" fitWidth="60.0" layoutX="26.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../assets/avatar.jpeg" />
+                                 </image>
+                              </ImageView>
+                              <Text layoutX="91.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                                 <font>
+                                    <Font name="System Bold Italic" size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="108.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="comment" />
+                              <Text layoutX="91.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                                 <font>
+                                    <Font name="System Bold Italic" size="16.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="108.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="comment" />
                            </children>
                         </AnchorPane>
                      </items>
