@@ -587,6 +587,12 @@ public class HelloController {
         FileChooser fileChooser=new FileChooser();
         db.changeProfilePhotoTo(UserMemory.getName(),ImageIO.read(fileChooser.showOpenDialog(null)));
     }
+    @FXML
+    protected void suggestionButtonClick() {
+        currentRecipeList=recipeSuggestion();
+        updateRecipesGUI();
+        changePage(3);
+    }
 
     //AL Methods
     public void visitProfile(String username)
