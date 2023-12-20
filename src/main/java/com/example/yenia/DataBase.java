@@ -102,7 +102,7 @@ public class DataBase {
     }
 
     //TODO This method will get the profile photo.
-    public Image getProfilePhotoOf(String username){
+    public BufferedImage getProfilePhotoOf(String username){
         return null;
     }
 
@@ -160,7 +160,7 @@ public class DataBase {
     }
 
     //TODO This method will get the image of recipe
-    public Image getImageOf(int ID){
+    public BufferedImage getImageOf(int ID){
         return null;
     }
 

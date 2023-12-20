@@ -7,14 +7,19 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -29,7 +34,7 @@ public class HelloController {
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch,addIngredientSearch;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch,addIngredientSearch,amount,newRecipeExplanition,voteNumber;
     @FXML
     private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber,addRecipeIngredients1,addRecipeIngredients2,addRecipeIngredients3,addRecipeIngredients4;
     @FXML
@@ -37,7 +42,7 @@ public class HelloController {
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote,myfridge1,myfridge2,myfridge3,myfridge4,myfridgePage;
     @FXML
-    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4;
+    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4,profilePhoto,otherProfilePhoto;
     private File image;
 
 
@@ -50,8 +55,9 @@ public class HelloController {
     private int recipesSection=0;
     private int myfridgeSection=0;
     private int addRecipeSection=0;
+    private int type=0;
     private ArrayList<Integer>currentRecipeList=db.getAllRecipes();
-    private ArrayList<Integer>fridge;
+    private ArrayList<int[]>fridge=new ArrayList<>();
     //Methods
 
     //Button Methods
@@ -435,40 +441,71 @@ public class HelloController {
     @FXML
     protected void add1ButtonClick()
     {
-        fridge.add(Integer.parseInt(code1.getText()));
-        updateAddRecipeGUI();
-        updateMyFridgeGUI();
-        changePage(lastPage);
+        if(!(amount.getText().isEmpty())&&!(code1==null)) {
+            int[]a={Integer.parseInt(code1.getText()),Integer.parseInt(amount.getText()),type};
+            fridge.add(a);
+            updateAddRecipeGUI();
+            updateMyFridgeGUI();
+            changePage(lastPage);
+        }
     }
     @FXML
     protected void add2ButtonClick()
     {
-        fridge.add(Integer.parseInt(code2.getText()));
-        updateAddRecipeGUI();
-        updateMyFridgeGUI();
-        changePage(lastPage);
+        if(!(amount.getText().isEmpty())&&!(code2==null)) {
+            int[]a={Integer.parseInt(code2.getText()),Integer.parseInt(amount.getText()),type};
+            fridge.add(a);
+            updateAddRecipeGUI();
+            updateMyFridgeGUI();
+            changePage(lastPage);
+        }
     }
     @FXML
     protected void add3ButtonClick()
     {
-        fridge.add(Integer.parseInt(code3.getText()));
-        updateAddRecipeGUI();
-        updateMyFridgeGUI();
-        changePage(lastPage);
+        if(!(amount.getText().isEmpty())&&!(code3==null)) {
+            int[]a={Integer.parseInt(code3.getText()),Integer.parseInt(amount.getText()),type};
+            fridge.add(a);
+            updateAddRecipeGUI();
+            updateMyFridgeGUI();
+            changePage(lastPage);
+        }
     }
     @FXML
     protected void add4ButtonClick()
     {
-        fridge.add(Integer.parseInt(code4.getText()));
-        updateAddRecipeGUI();
-        updateMyFridgeGUI();
-        changePage(lastPage);
+        if(!(amount.getText().isEmpty())&&!(code4==null)) {
+            int[]a={Integer.parseInt(code4.getText()),Integer.parseInt(amount.getText()),type};
+            fridge.add(a);
+            updateAddRecipeGUI();
+            updateMyFridgeGUI();
+            changePage(lastPage);
+        }
     }
     @FXML
-    protected void addRecipe()
+    protected void menu1ButtonClick() {type=0;}
+    @FXML
+    protected void menu2ButtonClick() {type=1;}
+    @FXML
+    protected void menu3ButtonClick() {type=2;}
+    @FXML
+    protected void menu4ButtonClick() {type=3;}
+    @FXML
+    protected void menu5ButtonClick() {type=4;}
+    @FXML
+    protected void menu6ButtonClick() {type=5;}
+    @FXML
+    protected void menu7ButtonClick() {type=6;}
+    @FXML
+    protected void addRecipe() throws IOException
     {
-       db.createNewRecipe();
+        Image ab=convertToFxImage(ImageIO.read(image));
+        Recipe recipe=new Recipe(Integer.parseInt(db.createNewRecipe()),ab,"a", newRecipeExplanition.getText(),fridge,null);
     }
+    @FXML
+    protected void followButtonClick() {db.followTo(UserMemory.getName(),otherProfileName.getText());}
+    @FXML
+    protected void voteButtonClick() {db.voteTo(UserMemory.getName(),otherProfileName.getText(),Integer.parseInt(voteNumber.getText()));}
 
 
     //AL Methods
@@ -479,6 +516,7 @@ public class HelloController {
         otherProfileFollowers.setText(db.getFollowerCountOf(username)+" ");
         otherProfileVote.setText(db.getVoteRateOf(username)+"/5");
         otherProfilePersonalInfo.setText(db.getPersonalInfoOf(username));
+        otherProfilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(username)));
     }
     public ArrayList<Integer> sortIngredientSearch(ArrayList<Integer>list,String searchText)
     {
@@ -605,6 +643,7 @@ public class HelloController {
         profilePageName.setText(UserMemory.getName());
         profilePageFollowers.setText(Integer.toString(db.getFollowerCountOf(UserMemory.getName())));
         profilePageVoteRate.setText(db.getVoteRateOf(UserMemory.getName())+"/5");
+        profilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
     }
     public void updateChiefsPageGUI(ArrayList<String> list)
     {
@@ -658,25 +697,25 @@ public class HelloController {
             {
                 myBasketFoodName1.setText(db.getNameOf(list.get(myBasketSection*4)));
                 myBasketLike1.setText(db.getLikeCountOf(list.get(myBasketSection*4))+" Likes");
-                myBasketImage1.setImage(db.getImageOf(list.get(myBasketSection*4)));
+                myBasketImage1.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4))));
             }
             if(list.size()>myBasketSection*4+1)
             {
                 myBasketFoodName2.setText(db.getNameOf(list.get(myBasketSection*4+1)));
                 myBasketLike2.setText(db.getLikeCountOf(list.get(myBasketSection*4+1))+" Likes");
-                myBasketImage2.setImage(db.getImageOf(list.get(myBasketSection*4+1)));
+                myBasketImage2.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+1))));
             }
             if(list.size()>myBasketSection*4+2)
             {
                 myBasketFoodName3.setText(db.getNameOf(list.get(myBasketSection*4+2)));
                 myBasketLike3.setText(db.getLikeCountOf(list.get(myBasketSection*4+2))+" Likes");
-                myBasketImage3.setImage(db.getImageOf(list.get(myBasketSection*4+2)));
+                myBasketImage3.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+2))));
             }
             if(list.size()>myBasketSection*4+3)
             {
                 myBasketFoodName4.setText(db.getNameOf(list.get(myBasketSection*4+3)));
                 myBasketLike4.setText(db.getLikeCountOf(list.get(myBasketSection*4+3))+" Likes");
-                myBasketImage4.setImage(db.getImageOf(list.get(myBasketSection*4+3)));
+                myBasketImage4.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+3))));
             }
         }
 
@@ -695,76 +734,76 @@ public class HelloController {
             {
                 recipesFoodName1.setText(db.getNameOf(list.get(recipesSection*4)));
                 recipesLike1.setText(db.getLikeCountOf(list.get(recipesSection*4))+" Likes");
-                recipesImage1.setImage(db.getImageOf(list.get(recipesSection*4)));
+                recipesImage1.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4))));
             }
             if(list.size()>recipesSection*4+1)
             {
                 recipesFoodName2.setText(db.getNameOf(list.get(recipesSection*4+1)));
                 recipesLike2.setText(db.getLikeCountOf(list.get(recipesSection*4+1))+" Likes");
-                recipesImage2.setImage(db.getImageOf(list.get(recipesSection*4+1)));
+                recipesImage2.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+1))));
             }
             if(list.size()>recipesSection*4+2)
             {
                 recipesFoodName3.setText(db.getNameOf(list.get(recipesSection*4+2)));
                 recipesLike3.setText(db.getLikeCountOf(list.get(recipesSection*4+2))+" Likes");
-                recipesImage3.setImage(db.getImageOf(list.get(recipesSection*4+2)));
+                recipesImage3.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+2))));
             }
             if(list.size()>recipesSection*4+3)
             {
                 recipesFoodName4.setText(db.getNameOf(list.get(recipesSection*4+3)));
                 recipesLike4.setText(db.getLikeCountOf(list.get(recipesSection*4+3))+" Likes");
-                recipesImage4.setImage(db.getImageOf(list.get(recipesSection*4+3)));
+                recipesImage4.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+3))));
             }
         }
 
     }
     public void updateMyFridgeGUI()
     {
-        ArrayList<Integer>list=fridge;
+        ArrayList<int[]>list=fridge;
         myfridgePage.setText("Page: "+ (myfridgeSection+1));
         myfridge1.setText("No Ingredients Added");myfridge2.setText(" ");myfridge3.setText(" ");myfridge4.setText(" ");
         if(!(list==null))
         {
             if(list.size()>myfridgeSection*4)
             {
-                myfridge1.setText(db.getIngredientName(list.get(myfridgeSection*4)));
+                myfridge1.setText(db.getIngredientName(list.get(myfridgeSection*4)[0]));
             }
             if(list.size()>myfridgeSection*4+1)
             {
-                myfridge2.setText(db.getIngredientName(list.get(myfridgeSection*4+1)));
+                myfridge2.setText(db.getIngredientName(list.get(myfridgeSection*4+1)[0]));
             }
             if(list.size()>myfridgeSection*4+2)
             {
-                myfridge3.setText(db.getIngredientName(list.get(myfridgeSection*4+2)));
+                myfridge3.setText(db.getIngredientName(list.get(myfridgeSection*4+2)[0]));
             }
             if(list.size()>myfridgeSection*4+3)
             {
-                myfridge4.setText(db.getIngredientName(list.get(myfridgeSection*4+3)));
+                myfridge4.setText(db.getIngredientName(list.get(myfridgeSection*4+3)[0]));
             }
         }
 
     }
     public void updateAddRecipeGUI()
     {
-        ArrayList<Integer>list=fridge;
+        ArrayList<int[]>list=fridge;
         addRecipeIngredients1.setText("No Ingredients Added");addRecipeIngredients2.setText(" ");addRecipeIngredients3.setText(" ");addRecipeIngredients4.setText(" ");
         if(!(list==null))
         {
             if(list.size()>addRecipeSection*4)
             {
-                addRecipeIngredients1.setText(db.getIngredientName(list.get(addRecipeSection*4)));
+                addRecipeIngredients1.setText(db.getIngredientName(list.get(addRecipeSection*4)[0]));
             }
             if(list.size()>addRecipeSection*4+1)
             {
-                addRecipeIngredients2.setText(db.getIngredientName(list.get(addRecipeSection*4+1)));
+                addRecipeIngredients2.setText(db.getIngredientName(list.get(addRecipeSection*4+1)[0]));
             }
             if(list.size()>addRecipeSection*4+2)
             {
-                addRecipeIngredients3.setText(db.getIngredientName(list.get(addRecipeSection*4+2)));
+                addRecipeIngredients3.setText(db.getIngredientName(list.get(addRecipeSection*4+2)[0]));
             }
             if(list.size()>addRecipeSection*4+3)
             {
-                addRecipeIngredients4.setText(db.getIngredientName(list.get(addRecipeSection*4+3)));
+                addRecipeIngredients4.setText(db.getIngredientName(list.get(addRecipeSection*4+3)[0]));
             }
         }
 
@@ -798,6 +837,19 @@ public class HelloController {
             }
         }
 
+    }
+    public static Image convertToFxImage (BufferedImage i) {
+        WritableImage wr = null;
+        if (i != null) {
+            wr = new WritableImage(i.getWidth(), i.getHeight());
+            PixelWriter pw = wr.getPixelWriter();
+            for (int x = 0; x < i.getWidth(); x++) {
+                for (int y = 0; y < i.getHeight(); y++) {
+                    pw.setArgb(x, y, i.getRGB(x, y));
+                }
+            }
+        }
+        return new ImageView(wr).getImage();
     }
 
 }
