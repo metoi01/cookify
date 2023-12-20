@@ -1,10 +1,12 @@
 package com.example.yenia;
+import javafx.scene.image.Image;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Recipe {
     public int ID;
-    public BufferedImage image;
+    public Image image;
     public String name;
     public String recipeExplanation;
 
@@ -75,7 +77,7 @@ public class Recipe {
     //
 
     // This method is for ready ingredient recipes.
-    public Recipe(int ID, BufferedImage image, String name, String recipeExplanation, ArrayList<int[]> ingridienList, boolean[] sections){
+    public Recipe(int ID, Image image, String name, String recipeExplanation, ArrayList<int[]> ingridienList, boolean[] sections){
         this.ID = ID;
         this.image = image;
         this.name = name;
@@ -87,7 +89,7 @@ public class Recipe {
     // This method is for empty ingredient recipes.
     // And this method has no ID initializers
     //      because when it is being generated the recipes dont have an ID they get an ID when they are uploaded to the server.
-    public Recipe(BufferedImage image, String name, String recipeExplanation){
+    public Recipe(Image image, String name, String recipeExplanation){
         this.image = image;
         this.name = name;
         this.recipeExplanation = recipeExplanation;

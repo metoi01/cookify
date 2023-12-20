@@ -5,6 +5,8 @@ package com.example.yenia;
  * This class is responsible for connecting, writing and reading from the server
  */
 
+import javafx.scene.image.Image;
+
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -44,7 +46,7 @@ public class DataBase {
     }
 
     //TODO This method will change the profile photo of the given user.
-    public void changeProfilePhotoTo(String username, BufferedImage image){
+    public void changeProfilePhotoTo(String username, Image image){
     }
 
     //TODO This method will delete user.
@@ -100,7 +102,7 @@ public class DataBase {
     }
 
     //TODO This method will get the profile photo.
-    public BufferedImage getProfilePhotoOf(String username){
+    public Image getProfilePhotoOf(String username){
         return null;
     }
 
@@ -158,7 +160,7 @@ public class DataBase {
     }
 
     //TODO This method will get the image of recipe
-    public BufferedImage getImageOf(int ID){
+    public Image getImageOf(int ID){
         return null;
     }
 
@@ -182,4 +184,5 @@ public class DataBase {
     public int getIngiridient(int index){
         return 0;
     }
+    public String getIngredientName(int id){return null;}
 }
