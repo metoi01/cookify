@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +60,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.yenia" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
@@ -105,7 +109,8 @@
       <workItem from="1702905739446" duration="8681000" />
       <workItem from="1702990623364" duration="1675000" />
       <workItem from="1702999215506" duration="16360000" />
-      <workItem from="1703035728154" duration="13498000" />
+      <workItem from="1703035728154" duration="17390000" />
+      <workItem from="1703062627082" duration="1249000" />
     </task>
     <servers />
   </component>

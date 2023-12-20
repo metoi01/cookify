@@ -30,19 +30,19 @@ public class HelloController {
     @FXML
     private Button usernameButton,mybasketButton,chiefsButton,myfridgeButton,personalInfoEdit,personalInfoDone;
     @FXML
-    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane,otherProfilePane,myFridgeAddIngredientPane,addRecipePane,addIngredientPane;
+    private SplitPane mybasketPane,usernamePane,chiefsPane,myfridgePane,recipesPane,settingsPane,logoutPane,otherProfilePane,myFridgeAddIngredientPane,addRecipePane,addIngredientPane,foodPagePane;
     @FXML
     private Pane loginPane,registerPane,mainPane;
     @FXML
-    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch,addIngredientSearch,amount,newRecipeExplanition,voteNumber;
+    private TextField loginUsername,loginPassword,registerUsername,registerPassword1,registerPassword2,personalInfo,chiefsSearch,myBasketSearch,settingsChangeUsername,settingsChangePassword1,settingsChangePassword2,settingsChangePassword3,settingsDeleteAccount,settingsChangeUsername2,recipesSearch,addIngredientSearch,amount,newRecipeExplanition,voteNumber,foodPageVoteNumber;
     @FXML
-    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber,addRecipeIngredients1,addRecipeIngredients2,addRecipeIngredients3,addRecipeIngredients4;
+    private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber,addRecipeIngredients1,addRecipeIngredients2,addRecipeIngredients3,addRecipeIngredients4,foodcode1,foodcode2,foodcode3,foodcode4,foodPageFoodID;
     @FXML
-    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4,addIngredient1,addIngredient2,addIngredient3,addIngredient4,code1,code2,code3,code4;
+    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4,addIngredient1,addIngredient2,addIngredient3,addIngredient4,code1,code2,code3,code4,foodPageName,foodPageUsername,foodPageIngredients,foodPageRecipe,foodPageVote;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote,myfridge1,myfridge2,myfridge3,myfridge4,myfridgePage;
     @FXML
-    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4,profilePhoto,otherProfilePhoto;
+    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4,profilePhoto,otherProfilePhoto,foodPageImage;
     private File image;
 
 
@@ -506,7 +506,80 @@ public class HelloController {
     protected void followButtonClick() {db.followTo(UserMemory.getName(),otherProfileName.getText());}
     @FXML
     protected void voteButtonClick() {db.voteTo(UserMemory.getName(),otherProfileName.getText(),Integer.parseInt(voteNumber.getText()));}
-
+    @FXML
+    protected void image1ButtonClick()
+    {
+        foodPageFoodID.setText(foodcode1.getText());
+        foodPageUsername.setText(db.getChefOf(Integer.parseInt(foodcode1.getText())));
+        foodPageName.setText(db.getNameOf(Integer.parseInt(foodcode1.getText())));
+        foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
+        foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode1.getText()))+" ");
+        if(!(db.getIngridientListOf(Integer.parseInt(foodcode1.getText()))==null))
+        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode1.getText())).toString());
+        if(!(foodPageRecipe==null))
+        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode1.getText())));
+        changePage(10);
+    }
+    @FXML
+    protected void image2ButtonClick()
+    {
+        foodPageFoodID.setText(foodcode2.getText());
+        foodPageUsername.setText(db.getChefOf(Integer.parseInt(foodcode2.getText())));
+        foodPageName.setText(db.getNameOf(Integer.parseInt(foodcode2.getText())));
+        foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
+        foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode2.getText()))+" ");
+        if(!(db.getIngridientListOf(Integer.parseInt(foodcode2.getText()))==null))
+        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode2.getText())).toString());
+        if(!(foodPageRecipe==null))
+        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode2.getText())));
+        changePage(10);
+    }
+    @FXML
+    protected void image3ButtonClick()
+    {
+        foodPageFoodID.setText(foodcode3.getText());
+        foodPageUsername.setText(db.getChefOf(Integer.parseInt(foodcode3.getText())));
+        foodPageName.setText(db.getNameOf(Integer.parseInt(foodcode3.getText())));
+        foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
+        foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode3.getText()))+" ");
+        if(!(db.getIngridientListOf(Integer.parseInt(foodcode3.getText()))==null))
+        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode3.getText())).toString());
+        if(!(foodPageRecipe==null))
+        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode3.getText())));
+        changePage(10);
+    }
+    @FXML
+    protected void image4ButtonClick()
+    {
+        foodPageFoodID.setText(foodcode4.getText());
+        foodPageUsername.setText(db.getChefOf(Integer.parseInt(foodcode4.getText())));
+        foodPageName.setText(db.getNameOf(Integer.parseInt(foodcode4.getText())));
+        foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
+        foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode4.getText()))+" ");
+        if(!(db.getIngridientListOf(Integer.parseInt(foodcode4.getText()))==null))
+        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode4.getText())).toString());
+        if(!(foodPageRecipe==null))
+        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode4.getText())));
+        changePage(10);
+    }
+    @FXML
+    protected void foodPageAddToBasketButtonClick()
+    {
+        if(!(foodPageFoodID==null))
+        db.addRecipe(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
+    }
+    @FXML
+    protected void foodPageLikeButtonClick()
+    {
+        if(!(foodPageFoodID==null))
+            db.likeTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
+    }
+    @FXML
+    protected void foodPageVoteButtonClick()
+    {
+        if(!(foodPageFoodID==null))
+            db.voteTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()),Integer.parseInt(foodPageVoteNumber.getText()));
+    }
 
     //AL Methods
     public void visitProfile(String username)
@@ -634,6 +707,7 @@ public class HelloController {
         if(currentPage==7)return otherProfilePane;
         if(currentPage==8)return addRecipePane;
         if(currentPage==9)return addIngredientPane;
+        if(currentPage==10)return foodPagePane;
         return usernamePane;
     }
     public void updateProfilePageGUI()
@@ -698,24 +772,28 @@ public class HelloController {
                 myBasketFoodName1.setText(db.getNameOf(list.get(myBasketSection*4)));
                 myBasketLike1.setText(db.getLikeCountOf(list.get(myBasketSection*4))+" Likes");
                 myBasketImage1.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4))));
+                foodcode1.setText(Integer.toString(list.get(myBasketSection*4)));
             }
             if(list.size()>myBasketSection*4+1)
             {
                 myBasketFoodName2.setText(db.getNameOf(list.get(myBasketSection*4+1)));
                 myBasketLike2.setText(db.getLikeCountOf(list.get(myBasketSection*4+1))+" Likes");
                 myBasketImage2.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+1))));
+                foodcode1.setText(Integer.toString(list.get(myBasketSection*4+1)));
             }
             if(list.size()>myBasketSection*4+2)
             {
                 myBasketFoodName3.setText(db.getNameOf(list.get(myBasketSection*4+2)));
                 myBasketLike3.setText(db.getLikeCountOf(list.get(myBasketSection*4+2))+" Likes");
                 myBasketImage3.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+2))));
+                foodcode1.setText(Integer.toString(list.get(myBasketSection*4+2)));
             }
             if(list.size()>myBasketSection*4+3)
             {
                 myBasketFoodName4.setText(db.getNameOf(list.get(myBasketSection*4+3)));
                 myBasketLike4.setText(db.getLikeCountOf(list.get(myBasketSection*4+3))+" Likes");
                 myBasketImage4.setImage(convertToFxImage(db.getImageOf(list.get(myBasketSection*4+3))));
+                foodcode1.setText(Integer.toString(list.get(myBasketSection*4+3)));
             }
         }
 
@@ -735,24 +813,28 @@ public class HelloController {
                 recipesFoodName1.setText(db.getNameOf(list.get(recipesSection*4)));
                 recipesLike1.setText(db.getLikeCountOf(list.get(recipesSection*4))+" Likes");
                 recipesImage1.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4))));
+                foodcode1.setText(Integer.toString(list.get(recipesSection*4)));
             }
             if(list.size()>recipesSection*4+1)
             {
                 recipesFoodName2.setText(db.getNameOf(list.get(recipesSection*4+1)));
                 recipesLike2.setText(db.getLikeCountOf(list.get(recipesSection*4+1))+" Likes");
                 recipesImage2.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+1))));
+                foodcode1.setText(Integer.toString(list.get(recipesSection*4+1)));
             }
             if(list.size()>recipesSection*4+2)
             {
                 recipesFoodName3.setText(db.getNameOf(list.get(recipesSection*4+2)));
                 recipesLike3.setText(db.getLikeCountOf(list.get(recipesSection*4+2))+" Likes");
                 recipesImage3.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+2))));
+                foodcode1.setText(Integer.toString(list.get(recipesSection*4+2)));
             }
             if(list.size()>recipesSection*4+3)
             {
                 recipesFoodName4.setText(db.getNameOf(list.get(recipesSection*4+3)));
                 recipesLike4.setText(db.getLikeCountOf(list.get(recipesSection*4+3))+" Likes");
                 recipesImage4.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4+3))));
+                foodcode1.setText(Integer.toString(list.get(recipesSection*4+3)));
             }
         }
 

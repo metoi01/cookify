@@ -60,7 +60,7 @@
                <font>
                   <Font size="28.0" />
                </font></Button>
-            <SplitPane fx:id="usernamePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="usernamePane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.17538975501113585, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
@@ -126,7 +126,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="otherProfilePane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="otherProfilePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.3201559020044543, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -325,10 +325,10 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Text>
-                              <ImageView fx:id="myBasketImage1" fitHeight="150.0" fitWidth="200.0" layoutX="155.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="myBasketImage3" fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="324.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="myBasketImage2" fitHeight="150.0" fitWidth="200.0" layoutX="611.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="myBasketImage4" fitHeight="150.0" fitWidth="200.0" layoutX="631.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="myBasketImage1" fitHeight="150.0" fitWidth="200.0" layoutX="155.0" layoutY="59.0" onMouseClicked="#image1ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="myBasketImage3" fitHeight="150.0" fitWidth="200.0" layoutX="143.0" layoutY="324.0" onMouseClicked="#chiefs3ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="myBasketImage2" fitHeight="150.0" fitWidth="200.0" layoutX="611.0" layoutY="48.0" onMouseClicked="#image2ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="myBasketImage4" fitHeight="150.0" fitWidth="200.0" layoutX="631.0" layoutY="342.0" onMouseClicked="#chiefs4ButtonClick" pickOnBounds="true" preserveRatio="true" />
                            </children></AnchorPane>
                      </items>
                   </SplitPane>
@@ -755,10 +755,10 @@
                                     <Font name="System Bold" size="19.0" />
                                  </font>
                               </Text>
-                              <ImageView fx:id="recipesImage1" fitHeight="150.0" fitWidth="200.0" layoutX="138.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="recipesImage2" fitHeight="150.0" fitWidth="200.0" layoutX="621.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="recipesImage3" fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="recipesImage4" fitHeight="150.0" fitWidth="200.0" layoutX="642.0" layoutY="336.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="recipesImage1" fitHeight="150.0" fitWidth="200.0" layoutX="138.0" layoutY="89.0" onMouseClicked="#image1ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="recipesImage2" fitHeight="150.0" fitWidth="200.0" layoutX="621.0" layoutY="89.0" onMouseDragged="#image2ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="recipesImage3" fitHeight="150.0" fitWidth="200.0" layoutX="134.0" layoutY="330.0" onMouseClicked="#image3ButtonClick" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="recipesImage4" fitHeight="150.0" fitWidth="200.0" layoutX="642.0" layoutY="336.0" onMouseClicked="#image4ButtonClick" pickOnBounds="true" preserveRatio="true" />
                            </children></AnchorPane>
                      </items>
                   </SplitPane>
@@ -826,7 +826,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="logoutPane1" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="foodPagePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.2594444444444444, 0.455, 0.695" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -837,12 +837,12 @@
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="210.0" fitWidth="213.0" layoutX="364.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="foodPageImage" fitHeight="210.0" fitWidth="213.0" layoutX="364.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../assets/avatar.jpeg" />
                                  </image>
                               </ImageView>
-                              <Text fill="#ffbf00" layoutX="669.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
+                              <Text fx:id="foodPageVote" fill="#ffbf00" layoutX="669.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0.0" />
                               <Text fill="#ffbf00" layoutX="690.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/5 " />
                               <Text fill="#ffbf00" layoutX="710.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                               <Text fill="#ffbf00" layoutX="740.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="votes." />
@@ -856,7 +856,7 @@
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <Text layoutX="389.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodName" underline="true">
+                              <Text fx:id="foodPageName" layoutX="389.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FoodName" underline="true">
                                  <font>
                                     <Font size="33.0" />
                                  </font>
@@ -866,7 +866,12 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="430.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                              <Text fx:id="foodPageUsername" layoutX="430.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="foodPageFoodID" layoutX="663.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="01" visible="false">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
@@ -889,7 +894,7 @@
                                                 <Font size="24.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="29.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
+                                          <Text fx:id="foodPageIngredients" layoutX="29.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="...">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -908,7 +913,7 @@
                                                 <Font size="24.0" />
                                              </font>
                                           </Text>
-                                          <Text layoutX="29.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
+                                          <Text fx:id="foodPageIngredients" layoutX="29.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="....">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -926,28 +931,22 @@
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <ImageView fitHeight="61.0" fitWidth="60.0" layoutX="26.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../assets/avatar.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <ImageView fitHeight="61.0" fitWidth="60.0" layoutX="26.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../../assets/avatar.jpeg" />
-                                 </image>
-                              </ImageView>
-                              <Text layoutX="91.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                              <Button layoutX="37.0" layoutY="90.0" mnemonicParsing="false" onAction="#foodPageAddToBasketButtonClick" prefHeight="97.0" prefWidth="246.0" text="Add To Basket">
                                  <font>
-                                    <Font name="System Bold Italic" size="16.0" />
+                                    <Font size="26.0" />
                                  </font>
-                              </Text>
-                              <Text layoutX="108.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="comment" />
-                              <Text layoutX="91.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="chiefname">
+                              </Button>
+                              <Button layoutX="317.0" layoutY="88.0" mnemonicParsing="false" onAction="#foodPageLikeButtonClick" prefHeight="97.0" prefWidth="246.0" text="Like">
                                  <font>
-                                    <Font name="System Bold Italic" size="16.0" />
+                                    <Font size="26.0" />
                                  </font>
-                              </Text>
-                              <Text layoutX="108.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="comment" />
+                              </Button>
+                              <Button layoutX="590.0" layoutY="89.0" mnemonicParsing="false" onAction="#foodPageVoteButtonClick" prefHeight="97.0" prefWidth="246.0" text="Vote">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="foodPageVoteNumber" layoutX="866.0" layoutY="88.0" prefHeight="97.0" prefWidth="112.0" />
                            </children>
                         </AnchorPane>
                      </items>
@@ -970,6 +969,10 @@
             <FontAwesomeIconView fill="#ff2700" glyphName="FIRE" layoutX="16.0" layoutY="376.0" size="24" />
             <FontAwesomeIconView fill="#ff8800" glyphName="GEAR" layoutX="27.0" layoutY="463.0" size="24" />
             <FontAwesomeIconView fill="#9a3184" glyphName="ERASER" layoutX="24.0" layoutY="552.0" size="24" />
+            <Text fx:id="foodcode1" layoutX="57.0" layoutY="647.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+            <Text fx:id="foodcode2" layoutX="67.0" layoutY="657.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+            <Text fx:id="foodcode3" layoutX="77.0" layoutY="667.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
+            <Text fx:id="foodcode4" layoutX="87.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" visible="false" />
          </children>
       </Pane>
       <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
