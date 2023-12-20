@@ -1,4 +1,5 @@
 package com.example.yenia;
+
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -7,15 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+
 public class DataBase {
-    public static void main(String[] args) {
-        DataBase d = new DataBase();
-        saveNewUser("admin", "123");
 
-        System.out.println(getPasswordOf("admin"));
-    }
-
-    private static final String DATABASE_URL = "jdbc:sqlite:recipe_app.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:/Users/mertokhan/Desktop/github/cookify/src/main/resources/SQLite/a/usersdb.db";
 
     public DataBase() {
         // Veritabanı bağlantısını başlat
@@ -28,6 +24,112 @@ public class DataBase {
         }
     }
 
+    //start
+    //TODO This method will get all recipes from the database.
+    public ArrayList<Integer> getAllRecipes() {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM recipetable")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            ArrayList<Integer> recipeList = new ArrayList<>();
+            while (resultSet.next()) {
+                recipeList.add(resultSet.getInt("id"));
+            }
+            return recipeList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //TODO This method will get all users from the database.
+    public ArrayList<String> getAllUsers() {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT username FROM users")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            ArrayList<String> userList = new ArrayList<>();
+            while (resultSet.next()) {
+                userList.add(resultSet.getString("username"));
+            }
+            return userList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //TODO This method will change the username of the given user.
+    public void changeUsernameTo(String oldUsername, String newUsername) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE users SET username = ? WHERE username = ?")) {
+            preparedStatement.setString(1, newUsername);
+            preparedStatement.setString(2, oldUsername);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //TODO This method will delete the user from the database.
+    public void deleteUser(String username) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM users WHERE username = ?")) {
+            preparedStatement.setString(1, username);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void likeTo(int ID){
+    }
+
+    //TODO This method will get the name of the given ingredient.
+    public String getIngredientName(int ingredientID) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name FROM ingredients WHERE id = ?")) {
+            preparedStatement.setInt(1, ingredientID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString("name");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //TODO This method will get the name of the given entity (user or recipe).
+    public String getNameOf(int entityID) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name FROM recipetable WHERE id = ?")) {
+            preparedStatement.setInt(1, entityID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString("name");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    //TODO This method will get all ingredients from the database.
+    public ArrayList<Integer> getAllIngredients() {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM ingredients")) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            ArrayList<Integer> ingredientList = new ArrayList<>();
+            while (resultSet.next()) {
+                ingredientList.add(resultSet.getInt("id"));
+            }
+            return ingredientList;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    //end
+
     private void createTables(Connection connection) throws SQLException {
         // Kullanıcılar tablosu
         String createUserTableSQL = "CREATE TABLE IF NOT EXISTS users (" +
@@ -38,7 +140,7 @@ public class DataBase {
                 "profile_photo BLOB)";
 
         // Tarifler tablosu
-        String createRecipeTableSQL = "CREATE TABLE IF NOT EXISTS recipes (" +
+        String createRecipeTableSQL = "CREATE TABLE IF NOT EXISTS recipetable (" +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "name TEXT NOT NULL," +
                 "chef TEXT NOT NULL," +
@@ -61,14 +163,26 @@ public class DataBase {
                 "FOREIGN KEY (follower) REFERENCES users(username)," +
                 "FOREIGN KEY (followed) REFERENCES users(username))";
 
+        String createIngredientsTableSQL = "CREATE TABLE IF NOT EXISTS ingredients (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "name TEXT NOT NULL," +
+                "amount INTEGER," +
+                "amount_kind TEXT," +
+                "recipe_id INTEGER," +
+                "FOREIGN KEY (recipe_id) REFERENCES recipetable(id)" +
+                ")";
+
+
+
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(createUserTableSQL);
             statement.executeUpdate(createRecipeTableSQL);
             statement.executeUpdate(createFollowTableSQL);
+            statement.executeUpdate(createIngredientsTableSQL);
         }
     }
 
-    public static String getPasswordOf(String username) {
+    public String getPasswordOf(String username) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE username = ?")) {
             preparedStatement.setString(1, username);
@@ -82,7 +196,7 @@ public class DataBase {
         return null;
     }
 
-    public static void saveNewUser(String username, String password) {
+    public void saveNewUser(String username, String password) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)")) {
             preparedStatement.setString(1, username);
@@ -147,9 +261,9 @@ public class DataBase {
 
     public void addRecipe(String username, int recipeID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO recipes (name, chef) VALUES (?, ?)")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO recipetable (name, chef) VALUES (?, ?)")) {
             // Tarif bilgilerini ekleyin
-            preparedStatement.setString(1, "Tarif Adı"); // Örneğin
+            preparedStatement.setString(1, "Tarif Adı");
             preparedStatement.setString(2, username);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -159,7 +273,7 @@ public class DataBase {
 
     public void removeRecipe(String username, int recipeID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM recipes WHERE id = ? AND chef = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM recipetable WHERE id = ? AND chef = ?")) {
             preparedStatement.setInt(1, recipeID);
             preparedStatement.setString(2, username);
             preparedStatement.executeUpdate();
@@ -236,7 +350,7 @@ public class DataBase {
 
     public ArrayList<Integer> getRecipeListOf(String username) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM recipes WHERE chef = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT id FROM recipetable WHERE chef = ?")) {
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
             ArrayList<Integer> recipeList = new ArrayList<>();
@@ -271,7 +385,7 @@ public class DataBase {
 
     public String createNewRecipe() {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO recipes (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO recipetable (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, "Yeni Tarif"); // Örneğin
             preparedStatement.executeUpdate();
 
@@ -287,7 +401,7 @@ public class DataBase {
 
     public String getRecipeNameOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT name FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -301,7 +415,7 @@ public class DataBase {
 
     public String getChefOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT chef FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT chef FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -315,7 +429,7 @@ public class DataBase {
 
     public float getVoteRateOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT vote_rate FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT vote_rate FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -329,7 +443,7 @@ public class DataBase {
 
     public int getLikeCountOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT like_count FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT like_count FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -343,7 +457,7 @@ public class DataBase {
 
     public int getCookCountOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT cook_count FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT cook_count FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -357,7 +471,7 @@ public class DataBase {
 
     public int getCommentCountOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT comment_count FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT comment_count FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -371,7 +485,7 @@ public class DataBase {
 
     public int getShareCountOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT share_count FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT share_count FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -401,7 +515,7 @@ public class DataBase {
 
     public String getRecipeExplanation(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT recipe_explanation FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT recipe_explanation FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -412,10 +526,9 @@ public class DataBase {
         }
         return null;
     }
-
-    public BufferedImage getImageOf(int ID) {
+     public BufferedImage getImageOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT image FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT image FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -434,7 +547,7 @@ public class DataBase {
 
     public boolean[] getSectionsOf(int ID) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT sections FROM recipes WHERE id = ?")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT sections FROM recipetable WHERE id = ?")) {
             preparedStatement.setInt(1, ID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -484,13 +597,4 @@ public class DataBase {
         }
         return 0;
     }
-    public ArrayList<String> getAllUsers(){return null;}
-    public String getNameOf(int id){return null;}
-    public String getIngredientName(int id){return null;}
-    public ArrayList<Integer>getAllIngredients(){return null;}
-    public ArrayList<Integer>getAllRecipes(){return null;}
-    public void deleteUser(String username){}
-    public void changeUsernameTo(String username,String username1){}
-    public void likeTo(String username, int foodID){}
-    public void voteTo(String username,int foodID,int voteCount){}
 }

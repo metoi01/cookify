@@ -42,7 +42,7 @@ public class HelloController {
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote,myfridge1,myfridge2,myfridge3,myfridge4,myfridgePage;
     @FXML
-    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4,profilePhoto,otherProfilePhoto,foodPageImage;
+    private ImageView myBasketImage1,myBasketImage2,myBasketImage3,myBasketImage4,recipesImage1,recipesImage2,recipesImage3,recipesImage4,profilePhoto,otherProfilePhoto,foodPageImage,profilePhoto1;
     private File image;
 
 
@@ -573,25 +573,19 @@ public class HelloController {
     @FXML
     protected void foodPageLikeButtonClick()
     {
-        if(!(foodPageFoodID==null))
-            db.likeTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
+        if(!(foodPageFoodID==null)){}
+            //db.likeTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
     }
     @FXML
     protected void foodPageVoteButtonClick()
     {
-        if(!(foodPageFoodID==null))
-            db.voteTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()),Integer.parseInt(foodPageVoteNumber.getText()));
+        if(!(foodPageFoodID==null)){}
+            //db.voteTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()),Integer.parseInt(foodPageVoteNumber.getText()));
     }
     @FXML
     protected void editProfilePhotoButtonClick() throws IOException {
         FileChooser fileChooser=new FileChooser();
         db.changeProfilePhotoTo(UserMemory.getName(),ImageIO.read(fileChooser.showOpenDialog(null)));
-    }
-    @FXML
-    protected void suggestionButtonClick() {
-        currentRecipeList=recipeSuggestion();
-        updateRecipesGUI();
-        changePage(3);
     }
 
     //AL Methods
@@ -730,6 +724,7 @@ public class HelloController {
         profilePageName.setText(UserMemory.getName());
         profilePageFollowers.setText(Integer.toString(db.getFollowerCountOf(UserMemory.getName())));
         profilePageVoteRate.setText(db.getVoteRateOf(UserMemory.getName())+"/5");
+        profilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
         profilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
     }
     public void updateChiefsPageGUI(ArrayList<String> list)

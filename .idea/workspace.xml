@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39a79f1a-1486-4a88-9868-78b99e4512ab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" afterDir="false" />
     </list>
@@ -44,7 +46,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/burakhankaldirim/Desktop/cookify&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mertokhan/Desktop/github/cookify/src/main/java/com/example/yenia&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,6 +64,7 @@
       <recent name="com.example.yenia" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/yenia" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -91,7 +94,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-3183f394aec4-5f3ff201" />
+        <option value="jdk-11.0.21-corretto-11.0.21-3183f394aec4-26afc3bf" />
       </set>
     </attachedChunks>
   </component>
@@ -107,13 +110,24 @@
       <workItem from="1702905739446" duration="8681000" />
       <workItem from="1702990623364" duration="1675000" />
       <workItem from="1702999215506" duration="16360000" />
-      <workItem from="1703035728154" duration="17390000" />
-      <workItem from="1703062627082" duration="3862000" />
+      <workItem from="1703035728154" duration="13498000" />
+      <workItem from="1703059303563" duration="583000" />
+      <workItem from="1703059893142" duration="4797000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.sqlite.SQLiteException" package="org.sqlite" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
