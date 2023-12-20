@@ -325,7 +325,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="addIngredientPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="addIngredientPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                      <items>
@@ -338,7 +338,7 @@
                               </Label>
                               <TextField fx:id="addIngredientSearch" layoutX="364.0" layoutY="196.0" prefHeight="34.0" prefWidth="191.0" promptText="Search" />
                               <Button layoutX="575.0" layoutY="201.0" mnemonicParsing="false" onAction="#addIngredientSearchButtonClick" text="Search" />
-                              <Button layoutX="586.0" layoutY="250.0" mnemonicParsing="false" text="Add" />
+                              <Button layoutX="586.0" layoutY="250.0" mnemonicParsing="false" onAction="#add1ButtonClick" text="Add" />
                               <Text fx:id="addIngredient1" layoutX="361.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="183.86391339822706">
                                  <font>
                                     <Font size="20.0" />
@@ -359,9 +359,29 @@
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Button layoutX="585.0" layoutY="278.0" mnemonicParsing="false" text="Add" />
-                              <Button layoutX="586.0" layoutY="306.0" mnemonicParsing="false" text="Add" />
-                              <Button layoutX="587.0" layoutY="334.0" mnemonicParsing="false" text="Add" />
+                              <Button layoutX="585.0" layoutY="278.0" mnemonicParsing="false" onAction="#add2ButtonClick" text="Add" />
+                              <Button layoutX="586.0" layoutY="306.0" mnemonicParsing="false" onAction="#add3ButtonClick" text="Add" />
+                              <Button layoutX="587.0" layoutY="334.0" mnemonicParsing="false" onAction="#add4ButtonClick" text="Add" />
+                              <Text fx:id="code1" layoutX="83.0" layoutY="473.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="183.86391339822706">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="code2" layoutX="94.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="183.86391339822706">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="code4" fill="WHITE" layoutX="108.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="183.86391339822706">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="addIngredient11111" fill="WHITE" layoutX="127.0" layoutY="613.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="false" wrappingWidth="183.86391339822706">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
                            </children>
                         </AnchorPane>
                      </items>
@@ -487,7 +507,7 @@
                                  <font>
                                     <Font name="Times New Roman" size="26.0" />
                                  </font></Label>
-                              <Button layoutX="437.0" layoutY="477.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="139.0" text="Add Ingredient">
+                              <Button layoutX="437.0" layoutY="477.0" mnemonicParsing="false" onAction="#addIngredientButtonClick" prefHeight="45.0" prefWidth="139.0" text="Add Ingredient">
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>
@@ -529,7 +549,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="addRecipePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="addRecipePane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane layoutX="-10.0" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>

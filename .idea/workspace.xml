@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="39a79f1a-1486-4a88-9868-78b99e4512ab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" afterDir="false" />
     </list>
@@ -105,12 +104,23 @@
       <workItem from="1702905739446" duration="8681000" />
       <workItem from="1702990623364" duration="1675000" />
       <workItem from="1702999215506" duration="16360000" />
-      <workItem from="1703035728154" duration="4485000" />
+      <workItem from="1703035728154" duration="6238000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java</url>
+          <line>365</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

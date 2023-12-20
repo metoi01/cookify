@@ -33,7 +33,7 @@ public class HelloController {
     @FXML
     private Text loginError,registerError,chiefs1,chiefs2,chiefs3,chiefs4,chiefs5,chiefs6,rating1,rating2,rating3,rating4,rating5,rating6,chiefsPageNum,otherProfilePersonalInfo,recipesFoodName1,recipesFoodName2,recipesFoodName3,recipesFoodName4,recipesPageNumber,addRecipeIngredients1,addRecipeIngredients2,addRecipeIngredients3,addRecipeIngredients4;
     @FXML
-    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4,addIngredient1,addIngredient2,addIngredient3,addIngredient4;
+    private Text myBasketFoodName1,myBasketFoodName2,myBasketFoodName3,myBasketFoodName4,myBasketLike1,myBasketLike2,myBasketLike3,myBasketLike4,myBasketPageNumber,settingsPasswordError,settingsUsernameError,settingsDeleteError,recipesLike1,recipesLike2,recipesLike3,recipesLike4,addIngredient1,addIngredient2,addIngredient3,addIngredient4,code1,code2,code3,code4;
     @FXML
     private Label profilePageName,profilePageFollowers,profilePageVoteRate,otherProfileName,otherProfileFollowers,otherProfileVote,myfridge1,myfridge2,myfridge3,myfridge4,myfridgePage;
     @FXML
@@ -43,7 +43,8 @@ public class HelloController {
 
     //AL Variables
     private DataBase db=new DataBase();
-    private int currentPage=2;
+    private int currentPage=0;
+    private int lastPage=0;
     private int chiefsSection=0;
     private int myBasketSection=0;
     private int recipesSection=0;
@@ -51,7 +52,6 @@ public class HelloController {
     private int addRecipeSection=0;
     private ArrayList<Integer>currentRecipeList=db.getAllRecipes();
     private ArrayList<Integer>fridge;
-    private ArrayList<Integer>addRecipeIngredients;
     //Methods
 
     //Button Methods
@@ -63,6 +63,7 @@ public class HelloController {
     @FXML
     protected void myfridgeButtonClick()
     {
+        fridge=null;
         updateMyFridgeGUI();
         changePage(4);
     }
@@ -412,8 +413,8 @@ public class HelloController {
     @FXML
     protected void addRecipeDownButtonClick()
     {
-        if(addRecipeIngredients!=null) {
-            if (addRecipeIngredients.size() > addRecipeSection * 4) {
+        if(fridge!=null) {
+            if (fridge.size() > addRecipeSection * 4) {
                 addRecipeSection++;
             }
         }
@@ -427,8 +428,46 @@ public class HelloController {
     @FXML
     protected void addIngredientButtonClick()
     {
+        lastPage=currentPage;
         updateAddIngredientGUI();
         changePage(9);
+    }
+    @FXML
+    protected void add1ButtonClick()
+    {
+        fridge.add(Integer.parseInt(code1.getText()));
+        updateAddRecipeGUI();
+        updateMyFridgeGUI();
+        changePage(lastPage);
+    }
+    @FXML
+    protected void add2ButtonClick()
+    {
+        fridge.add(Integer.parseInt(code2.getText()));
+        updateAddRecipeGUI();
+        updateMyFridgeGUI();
+        changePage(lastPage);
+    }
+    @FXML
+    protected void add3ButtonClick()
+    {
+        fridge.add(Integer.parseInt(code3.getText()));
+        updateAddRecipeGUI();
+        updateMyFridgeGUI();
+        changePage(lastPage);
+    }
+    @FXML
+    protected void add4ButtonClick()
+    {
+        fridge.add(Integer.parseInt(code4.getText()));
+        updateAddRecipeGUI();
+        updateMyFridgeGUI();
+        changePage(lastPage);
+    }
+    @FXML
+    protected void addRecipe()
+    {
+       db.createNewRecipe();
     }
 
 
@@ -707,7 +746,7 @@ public class HelloController {
     }
     public void updateAddRecipeGUI()
     {
-        ArrayList<Integer>list=addRecipeIngredients;
+        ArrayList<Integer>list=fridge;
         addRecipeIngredients1.setText("No Ingredients Added");addRecipeIngredients2.setText(" ");addRecipeIngredients3.setText(" ");addRecipeIngredients4.setText(" ");
         if(!(list==null))
         {
@@ -740,18 +779,22 @@ public class HelloController {
             if(list.size()>0)
             {
                 addIngredient1.setText(db.getIngredientName(list.get(0)));
+                code1.setText(Integer.toString(list.get(0)));
             }
             if(list.size()>1)
             {
                 addIngredient2.setText(db.getIngredientName(list.get(1)));
+                code2.setText(Integer.toString(list.get(1)));
             }
             if(list.size()>2)
             {
                 addIngredient3.setText(db.getIngredientName(list.get(2)));
+                code3.setText(Integer.toString(list.get(2)));
             }
             if(list.size()>3)
             {
                 addIngredient4.setText(db.getIngredientName(list.get(3)));
+                code4.setText(Integer.toString(list.get(3)));
             }
         }
 
