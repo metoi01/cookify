@@ -386,7 +386,7 @@ public class DataBase {
     public String createNewRecipe() {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL);
              PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO recipetable (name) VALUES (?)", Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.setString(1, "Yeni Tarif"); // Örneğin
+            preparedStatement.setString(1, "New Recipe");
             preparedStatement.executeUpdate();
 
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();

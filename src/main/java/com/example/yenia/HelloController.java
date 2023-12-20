@@ -69,7 +69,6 @@ public class HelloController {
     @FXML
     protected void myfridgeButtonClick()
     {
-        fridge=null;
         updateMyFridgeGUI();
         changePage(4);
     }
@@ -83,9 +82,7 @@ public class HelloController {
         updateMyBasketGUI();
     }
     @FXML
-    protected void recipesButtonClick()
-    {
-        fridge=null;
+    protected void recipesButtonClick() throws IOException {
         currentRecipeList=db.getAllRecipes();
         updateRecipesGUI();
         changePage(3);
@@ -221,7 +218,7 @@ public class HelloController {
     {
         if(sortListSearch(db.getAllUsers(),chiefsSearch.getText()).size()>(chiefsSection+1)*6)
         {
-           chiefsSection++;
+            chiefsSection++;
         }
         updateChiefsPageGUI(sortListSearch(db.getAllUsers(),chiefsSearch.getText()));
     }
@@ -358,14 +355,12 @@ public class HelloController {
     }
 
     @FXML
-    protected void recipesUpButtonClick()
-    {
+    protected void recipesUpButtonClick() throws IOException {
         if(recipesSection>0) recipesSection--;
         updateRecipesGUI();
     }
     @FXML
-    protected void recipesDownButtonClick()
-    {
+    protected void recipesDownButtonClick() throws IOException {
         if(db.getRecipeListOf(UserMemory.getName())!=null) {
             if (db.getAllRecipes().size() > recipesSection * 4) {
                 recipesSection++;
@@ -374,13 +369,11 @@ public class HelloController {
         updateRecipesGUI();
     }
     @FXML
-    protected void recipesSearchButtonClick()
-    {
+    protected void recipesSearchButtonClick() throws IOException {
         updateRecipesGUI();
     }
     @FXML
-    protected void profileRecipesButtonClick()
-    {
+    protected void profileRecipesButtonClick() throws IOException {
         currentRecipeList=db.getRecipeListOf(otherProfileName.getText());
         updateRecipesGUI();
         changePage(3);
@@ -502,7 +495,9 @@ public class HelloController {
     protected void addRecipe() throws IOException
     {
         Image ab=convertToFxImage(ImageIO.read(image));
-        Recipe recipe=new Recipe(Integer.parseInt(db.createNewRecipe()),ab,"a", newRecipeExplanition.getText(),fridge,null);
+        int id=Integer.parseInt(db.createNewRecipe());
+        Recipe recipe=new Recipe(id,ab,"a", newRecipeExplanition.getText(),fridge,null);
+
     }
     @FXML
     protected void followButtonClick() {db.followTo(UserMemory.getName(),otherProfileName.getText());}
@@ -517,9 +512,9 @@ public class HelloController {
         foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
         foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode1.getText()))+" ");
         if(!(db.getIngridientListOf(Integer.parseInt(foodcode1.getText()))==null))
-        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode1.getText())).toString());
+            foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode1.getText())).toString());
         if(!(foodPageRecipe==null))
-        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode1.getText())));
+            foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode1.getText())));
         changePage(10);
     }
     @FXML
@@ -531,9 +526,9 @@ public class HelloController {
         foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
         foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode2.getText()))+" ");
         if(!(db.getIngridientListOf(Integer.parseInt(foodcode2.getText()))==null))
-        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode2.getText())).toString());
+            foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode2.getText())).toString());
         if(!(foodPageRecipe==null))
-        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode2.getText())));
+            foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode2.getText())));
         changePage(10);
     }
     @FXML
@@ -545,9 +540,9 @@ public class HelloController {
         foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
         foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode3.getText()))+" ");
         if(!(db.getIngridientListOf(Integer.parseInt(foodcode3.getText()))==null))
-        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode3.getText())).toString());
+            foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode3.getText())).toString());
         if(!(foodPageRecipe==null))
-        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode3.getText())));
+            foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode3.getText())));
         changePage(10);
     }
     @FXML
@@ -559,34 +554,31 @@ public class HelloController {
         foodPageImage.setImage(convertToFxImage(db.getProfilePhotoOf(foodPageUsername.getText())));
         foodPageVote.setText(db.getVoteRateOf(Integer.parseInt(foodcode4.getText()))+" ");
         if(!(db.getIngridientListOf(Integer.parseInt(foodcode4.getText()))==null))
-        foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode4.getText())).toString());
+            foodPageIngredients.setText(db.getIngridientListOf(Integer.parseInt(foodcode4.getText())).toString());
         if(!(foodPageRecipe==null))
-        foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode4.getText())));
+            foodPageRecipe.setText(db.getRecipeExplanation(Integer.parseInt(foodcode4.getText())));
         changePage(10);
     }
     @FXML
     protected void foodPageAddToBasketButtonClick()
     {
         if(!(foodPageFoodID==null))
-        db.addRecipe(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
+            db.addRecipe(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
     }
     @FXML
     protected void foodPageLikeButtonClick()
     {
-        if(!(foodPageFoodID==null)){}
-            //db.likeTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()));
     }
     @FXML
     protected void foodPageVoteButtonClick()
     {
-        if(!(foodPageFoodID==null)){}
-            //db.voteTo(UserMemory.getName(),Integer.parseInt(foodPageFoodID.getText()),Integer.parseInt(foodPageVoteNumber.getText()));
     }
     @FXML
     protected void editProfilePhotoButtonClick() throws IOException {
         FileChooser fileChooser=new FileChooser();
         db.changeProfilePhotoTo(UserMemory.getName(),ImageIO.read(fileChooser.showOpenDialog(null)));
     }
+
 
     //AL Methods
     public void visitProfile(String username)
@@ -725,7 +717,7 @@ public class HelloController {
         profilePageFollowers.setText(Integer.toString(db.getFollowerCountOf(UserMemory.getName())));
         profilePageVoteRate.setText(db.getVoteRateOf(UserMemory.getName())+"/5");
         profilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
-        profilePhoto.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
+        profilePhoto1.setImage(convertToFxImage(db.getProfilePhotoOf(UserMemory.getName())));
     }
     public void updateChiefsPageGUI(ArrayList<String> list)
     {
@@ -768,20 +760,18 @@ public class HelloController {
     public ArrayList<Integer> recipeSuggestion()
     {
         ArrayList<Integer> out=new ArrayList<>();
-        for(int i=0;i<db.getAllRecipes().size();i++)
-        {
-            int count=0;
-            ArrayList<int[]> a= db.getIngridientListOf(db.getAllRecipes().get(i));
-            for(int k=0;k<db.getAllRecipes().size();k++)
-            {
-                if (a.get(i)==fridge.get(k))
-                {
-                    count++;
+        if(!(db.getAllRecipes()==null)) {
+            for (int i = 0; i < db.getAllRecipes().size(); i++) {
+                int count = 0;
+                ArrayList<int[]> a = db.getIngridientListOf(db.getAllRecipes().get(i));
+                for (int k = 0; k < db.getAllRecipes().size(); k++) {
+                    if (a.get(i) == fridge.get(k)) {
+                        count++;
+                    }
                 }
-            }
-            if(count>=2)
-            {
-                out.add(db.getAllRecipes().get(i));
+                if (count >= 2) {
+                    out.add(db.getAllRecipes().get(i));
+                }
             }
         }
 
@@ -828,8 +818,7 @@ public class HelloController {
         }
 
     }
-    public void updateRecipesGUI()
-    {
+    public void updateRecipesGUI() throws IOException {
         ArrayList<Integer> list=currentRecipeList;
         list=sortRecipeSearch(list,recipesSearch.getText());
         list=sortRecipes(list);
@@ -840,6 +829,7 @@ public class HelloController {
         {
             if(list.size()>recipesSection*4)
             {
+
                 recipesFoodName1.setText(db.getNameOf(list.get(recipesSection*4)));
                 recipesLike1.setText(db.getLikeCountOf(list.get(recipesSection*4))+" Likes");
                 recipesImage1.setImage(convertToFxImage(db.getImageOf(list.get(recipesSection*4))));
@@ -929,24 +919,19 @@ public class HelloController {
         {
             if(list.size()>0)
             {
-                addIngredient1.setText(db.getIngredientName(list.get(0)));
-                code1.setText(Integer.toString(list.get(0)));
+                if(!(db.getIngredientName(list.get(1))==null)) {
+                    addIngredient1.setText(db.getIngredientName(list.get(0)));
+                    code1.setText(Integer.toString(list.get(0)));
+                }
             }
             if(list.size()>1)
             {
-                addIngredient2.setText(db.getIngredientName(list.get(1)));
-                code2.setText(Integer.toString(list.get(1)));
+                if(!(db.getIngredientName(list.get(2))==null)) {
+                    addIngredient2.setText(db.getIngredientName(list.get(1)));
+                    code2.setText(Integer.toString(list.get(1)));
+                }
             }
-            if(list.size()>2)
-            {
-                addIngredient3.setText(db.getIngredientName(list.get(2)));
-                code3.setText(Integer.toString(list.get(2)));
-            }
-            if(list.size()>3)
-            {
-                addIngredient4.setText(db.getIngredientName(list.get(3)));
-                code4.setText(Integer.toString(list.get(3)));
-            }
+
         }
 
     }
