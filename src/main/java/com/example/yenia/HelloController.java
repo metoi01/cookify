@@ -38,11 +38,13 @@ public class HelloController {
     private int chiefsSection=0;
     private int myBasketSection=0;
     private int recipesSection=0;
+    private ArrayList<Integer>currentRecipeList=db.getAllRecipes();
     //Methods
 
     //Button Methods
     @FXML
     protected void usernameButtonClick() {
+        updateProfilePageGUI();
         changePage(0);
     }
     @FXML
@@ -61,6 +63,8 @@ public class HelloController {
     @FXML
     protected void recipesButtonClick()
     {
+        currentRecipeList=db.getAllRecipes();
+        updateRecipesGUI();
         changePage(3);
     }
     @FXML
@@ -351,6 +355,13 @@ public class HelloController {
     {
         updateRecipesGUI();
     }
+    @FXML
+    protected void profileRecipesButtonClick()
+    {
+        currentRecipeList=db.getRecipeListOf(otherProfileName.getText());
+        updateRecipesGUI();
+        changePage(3);
+    }
 
 
     //AL Methods
@@ -538,7 +549,7 @@ public class HelloController {
     }
     public void updateRecipesGUI()
     {
-        ArrayList<Integer> list=db.getAllRecipes();
+        ArrayList<Integer> list=currentRecipeList;
         list=sortRecipeSearch(list,recipesSearch.getText());
         list=sortRecipes(list);
         recipesPageNumber.setText("Page: "+ (recipesSection+1));

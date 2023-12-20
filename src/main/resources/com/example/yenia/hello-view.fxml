@@ -21,7 +21,7 @@
             <Image url="@../../../assets/white.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="mainPane" prefHeight="900.0" prefWidth="1200.0">
+      <Pane fx:id="mainPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="73.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutY="72.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
@@ -58,7 +58,7 @@
                <font>
                   <Font size="28.0" />
                </font></Button>
-            <SplitPane fx:id="usernamePane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
+            <SplitPane fx:id="usernamePane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
                <items>
                   <SplitPane dividerPositions="0.17538975501113585, 0.8357461024498887" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
@@ -114,9 +114,9 @@
                                  </image>
                               </ImageView>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="144.0" stroke="BLACK" strokeType="INSIDE" width="998.0" />
-                              <Button layoutX="3.0" layoutY="2.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="992.0" text="Recipes" underline="true">
+                              <Button layoutX="393.0" layoutY="43.0" mnemonicParsing="false" onAction="#mybasketButtonClick" prefHeight="36.0" prefWidth="255.0" text="Recipes" underline="true">
                                  <font>
-                                    <Font name="System Bold" size="58.0" />
+                                    <Font name="System Bold" size="32.0" />
                                  </font></Button>
                            </children>
                         </AnchorPane>
@@ -181,7 +181,10 @@
                                     <Image url="@../../../assets/white.jpg" />
                                  </image>
                               </ImageView>
-                              <Button layoutX="472.0" layoutY="60.0" mnemonicParsing="false" text="Recipes" />
+                              <Button layoutX="420.0" layoutY="42.0" mnemonicParsing="false" onAction="#profileRecipesButtonClick" prefHeight="60.0" prefWidth="185.0" text="Recipes">
+                                 <font>
+                                    <Font size="27.0" />
+                                 </font></Button>
                            </children>
                         </AnchorPane>
                      </items>
@@ -493,7 +496,7 @@
                   </SplitPane>
                </items>
             </SplitPane>
-            <SplitPane fx:id="recipesPane" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0">
+            <SplitPane fx:id="recipesPane" disable="true" layoutX="200.0" prefHeight="900.0" prefWidth="1000.0" visible="false">
                <items>
                   <SplitPane dividerPositions="0.21993318485523386" maxHeight="-Infinity" minHeight="-Infinity" orientation="VERTICAL" prefHeight="900.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
                      <items>
@@ -661,7 +664,7 @@
             <FontAwesomeIconView fill="#9a3184" glyphName="ERASER" layoutX="24.0" layoutY="552.0" size="24" />
          </children>
       </Pane>
-      <Pane fx:id="loginPane" disable="true" prefHeight="900.0" prefWidth="1200.0" visible="false">
+      <Pane fx:id="loginPane" prefHeight="900.0" prefWidth="1200.0">
          <children>
             <ImageView fitHeight="900.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
                <image>
