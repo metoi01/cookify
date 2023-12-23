@@ -532,7 +532,7 @@
                                  <font>
                                     <Font size="18.0" />
                                  </font></Button>
-                              <Button layoutX="361.0" layoutY="583.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="292.0" text="Find out what you can cook!">
+                              <Button layoutX="361.0" layoutY="583.0" mnemonicParsing="false" onAction="#suggestRecipes" prefHeight="45.0" prefWidth="292.0" text="Find out what you can cook!">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

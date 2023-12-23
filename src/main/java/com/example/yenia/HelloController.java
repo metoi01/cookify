@@ -180,13 +180,12 @@ public class HelloController {
         }
     }
     @FXML
-    protected void personalInfoEditButtonClick()
-    {
+    protected void personalInfoEditButtonClick() throws IOException {
         personalInfo.setEditable(true);
         personalInfoEdit.setVisible(false);
         personalInfoEdit.setDisable(true);
         personalInfoDone.setVisible(true);
-        personalInfoDone.setDisable(false);
+        personalInfoDone.setDisable(false);recipesImage1.setImage(convertToFxImage(ImageIO.read(new File("line.png"))));
     }
     @FXML
     protected void personalInfoDoneButtonClick()
@@ -577,6 +576,12 @@ public class HelloController {
     protected void editProfilePhotoButtonClick() throws IOException {
         FileChooser fileChooser=new FileChooser();
         db.changeProfilePhotoTo(UserMemory.getName(),ImageIO.read(fileChooser.showOpenDialog(null)));
+    }
+    @FXML
+    protected void suggestRecipes() throws IOException {
+        currentRecipeList=recipeSuggestion();
+        updateRecipesGUI();
+        changePage(3);
     }
 
 

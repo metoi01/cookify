@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="39a79f1a-1486-4a88-9868-78b99e4512ab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/yenia/HelloController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/SQLite/a/usersdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SQLite/a/usersdb.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/yenia/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +112,9 @@
       <workItem from="1703035728154" duration="13498000" />
       <workItem from="1703059303563" duration="583000" />
       <workItem from="1703059893142" duration="4797000" />
+      <workItem from="1703096918573" duration="602000" />
+      <workItem from="1703342456814" duration="1832000" />
+      <workItem from="1703354545167" duration="313000" />
     </task>
     <servers />
   </component>
