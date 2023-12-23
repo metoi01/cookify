@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 
 public class DataBase {
 
-    private static final String DATABASE_URL = "jdbc:sqlite:/Users/mertokhan/Desktop/github/cookify/src/main/resources/SQLite/a/usersdb.db";
+    private static final String DATABASE_URL = "jdbc:sqlite:src/main/resources/SQLite/a/usersdb.db";
 
     public DataBase() {
         // Veritabanı bağlantısını başlat
